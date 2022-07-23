@@ -1,0 +1,21 @@
+# Basic vars
+set shellopts '-eu'
+set ifs "\n"
+set scrolloff 10
+set icons
+set period 1
+
+# interpreter for shell commands
+set shell zsh
+map <enter> shell
+set icons
+
+# cmds/functions
+cmd open ${{
+    case $(file --mime-type "$(stat -f $f)" -b) in
+        audio/*) mpv --audio-display=no $f ;;
+        video/*) mpv $f -quiet ;;
+        application/pgp-encrypted) $EDITOR $fx ;;
+        *) for f in $fx; do $OPENER $f >/dev/null 2>&1; done;;
+    esac
+}}
