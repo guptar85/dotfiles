@@ -1,5 +1,5 @@
 # dotfiles
-Back up of my dot files for Linux/ Mac
+Back up of my dot files for Linux/ Mac.
 
 
 Create a Brewfile From Your Existing Environment <br>
