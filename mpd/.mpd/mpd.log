@@ -1,0 +1,27 @@
+Jul 26 07:20 : config: inotify: auto_update was disabled. enable during compilation phase
+Jul 26 07:22 : player: played "Kaho Na Kaho   Murder 2004  HD    Full Song HD   Emraan Hashmi & Mallika Sherawat.opus"
+Jul 26 07:22 : config: inotify: auto_update was disabled. enable during compilation phase
+Jul 26 07:40 : player: played "Dheere Dheere Se Meri Zindagi Video Song (OFFICIAL) Hrithik Roshan, Sonam Kapoor _ Yo Yo Honey Singh.opus"
+Jul 26 07:46 : player: played "Kaho Na Kaho   Murder 2004  HD    Full Song HD   Emraan Hashmi & Mallika Sherawat.opus"
+Jul 26 07:53 : player: played "Dheere Dheere Se Meri Zindagi Video Song (OFFICIAL) Hrithik Roshan, Sonam Kapoor _ Yo Yo Honey Singh.opus"
+Jul 26 07:53 : player: played "Dheere Dheere Se Meri Zindagi Video Song (OFFICIAL) Hrithik Roshan, Sonam Kapoor _ Yo Yo Honey Singh.opus"
+Jul 26 10:31 : config: inotify: auto_update was disabled. enable during compilation phase
+Jul 26 19:04 : config: inotify: auto_update was disabled. enable during compilation phase
+Jul 26 20:19 : update: added /TONES AND I - DANCE MONKEY (OFFICIAL VIDEO).opus
+Jul 26 20:19 : exception: Failed to open "CoreAudio" (osx); The operation couldn’t be completed. (OSStatus error 560947818.)
+Jul 26 20:20 : exception: Failed to open "CoreAudio" (osx); The operation couldn’t be completed. (OSStatus error 560947818.)
+Jul 26 20:20 : exception: Failed to open audio output
+Jul 26 20:20 : exception: Failed to open "CoreAudio" (osx); The operation couldn’t be completed. (OSStatus error 560947818.)
+Jul 26 20:20 : exception: Failed to open audio output
+Jul 26 20:20 : exception: Failed to open "CoreAudio" (osx); The operation couldn’t be completed. (OSStatus error 560947818.)
+Jul 26 20:20 : exception: Failed to open "CoreAudio" (osx); The operation couldn’t be completed. (OSStatus error 560947818.)
+Jul 26 20:21 : player: played "Kaho Na Kaho   Murder 2004  HD    Full Song HD   Emraan Hashmi & Mallika Sherawat.opus"
+Jul 26 20:21 : exception: Failed to open "CoreAudio" (osx); The operation couldn’t be completed. (OSStatus error 560947818.)
+Jul 26 20:21 : exception: Failed to open "CoreAudio" (osx); The operation couldn’t be completed. (OSStatus error 560947818.)
+Jul 26 20:22 : exception: Failed to open "CoreAudio" (osx); The operation couldn’t be completed. (OSStatus error 560947818.)
+Jul 26 20:22 : exception: Failed to open audio output
+Jul 26 20:22 : exception: Failed to open "CoreAudio" (osx); The operation couldn’t be completed. (OSStatus error 560947818.)
+Jul 26 20:25 : player: played "TONES AND I - DANCE MONKEY (OFFICIAL VIDEO).opus"
+Jul 26 20:25 : config: inotify: auto_update was disabled. enable during compilation phase
+Jul 26 21:19 : update: added /Chhoti Chhoti Raatein (Full Song) Film - Tum Bin... Love Will Find A Way.opus
+Jul 26 21:19 : exception: Bad playlist name

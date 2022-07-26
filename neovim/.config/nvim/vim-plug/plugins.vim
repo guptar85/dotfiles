@@ -9,4 +9,5 @@ source $HOME/.config/nvim/plugins/nerdtree-git.vim
 source $HOME/.config/nvim/plugins/ale.vim
 source $HOME/.config/nvim/plugins/maximizer.vim
 source $HOME/.config/nvim/plugins/surround.vim
+source $HOME/.config/nvim/plugins/vimwiki.vim
 call plug#end()

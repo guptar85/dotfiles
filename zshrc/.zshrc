@@ -139,3 +139,8 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+#export DOTFILES="$HOME/.dotfiles"
+#for rcfile in "$DOTFILES"/scripts/*.sh; do
+#  source "$rcfile"
+#done

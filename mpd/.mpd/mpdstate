@@ -1,0 +1,19 @@
+sw_volume: 44
+audio_device_state:1:CoreAudio
+audio_device_state:1:Visualizer feed
+state: play
+current: 3
+time: 28.956000
+random: 0
+repeat: 0
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:Kaho Na Kaho   Murder 2004  HD    Full Song HD   Emraan Hashmi & Mallika Sherawat.opus
+1:TONES AND I - DANCE MONKEY (OFFICIAL VIDEO).opus
+2:Dheere Dheere Se Meri Zindagi Mein Aana Full Video Song _ Aashiqui _ Anu Agarwal, Rahul Roy.opus
+3:Chhoti Chhoti Raatein (Full Song) Film - Tum Bin... Love Will Find A Way.opus
+playlist_end
