@@ -144,3 +144,6 @@ fi
 #for rcfile in "$DOTFILES"/scripts/*.sh; do
 #  source "$rcfile"
 #done
+
+zle -N 'tmux new-session -d'
+bindkey '^n' 'tmux new-session -d'

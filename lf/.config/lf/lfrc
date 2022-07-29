@@ -19,3 +19,17 @@ cmd open ${{
         *) for f in $fx; do $OPENER $f >/dev/null 2>&1; done;;
     esac
 }}
+
+cmd delete ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "delete?[y/N]"
+	read ans
+	[ $ans = "y" ] && sudo rm -rf -- $fx
+}}
+
+map D delete
+
+cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
+
