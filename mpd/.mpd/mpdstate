@@ -1,9 +1,9 @@
 sw_volume: 100
 audio_device_state:1:CoreAudio
 audio_device_state:1:Visualizer feed
-state: pause
-current: 5
-time: 2.224000
+state: play
+current: 7
+time: 119.985000
 random: 0
 repeat: 0
 single: 0
@@ -26,4 +26,5 @@ playlist_begin
 11:Pehli Pehli Baar Mohabbat Ki Hai _ Sirf Tum _ Sanjay Kapoor, Priya Gill _ 90's Songs.opus
 12:pal pal soch mein aana na   tujhe meri kasam.opus
 13:Dil Leke Jaan Leke - Na Tum Jaano Na Hum [2002].opus
+14:Hawaon Ne Ye Kaha, Aap Mujhe Achche Lagne Lage (2002) _  Udit Narayan _ 90s Superhit Song.opus
 playlist_end
