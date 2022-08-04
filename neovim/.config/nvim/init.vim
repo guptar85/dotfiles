@@ -33,7 +33,7 @@ else
     "Default <Leader> key is mapped to \
     let mapleader = ' '
     :nnoremap <leader>w :w<CR>
-    :nnoremap <silent><leader>j :%!jq<CR> gg0vG$yZQ<CR>
+    :nnoremap <silent><leader>j :%!jq<CR> gg0vG$y<CR>
     set clipboard=unnamedplus
     set undofile
     set undodir=$HOME/.config/nvim/undo-dir

@@ -145,5 +145,8 @@ fi
 #  source "$rcfile"
 #done
 
-zle -N 'tmux new-session -d'
-bindkey '^n' 'tmux new-session -d'
+#zle -N 'tmux new-session -d'
+#bindkey '^n' 'tmux new-session -d'
+
+bindkey -s '^o' 'lfcd\n'  # zsh
+bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n'

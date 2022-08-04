@@ -1,4 +1,4 @@
-trunc () { cut -c -$(tput cols); }
+trunc () { cut -c 1-"$(tput cols)" }
 ytplay() { 
     if [ -z "$(pbpaste)" ]; then
         echo "Nothing in clipboard"

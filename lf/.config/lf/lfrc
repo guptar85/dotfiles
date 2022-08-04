@@ -9,6 +9,9 @@ set period 1
 set shell zsh
 map <enter> shell
 set icons
+set scrolloff 10      # space on top and bottom of screen
+set preview on        # preview file on the right pane
+set ratios '1:2:3'
 
 # cmds/functions
 cmd open ${{
@@ -32,4 +35,9 @@ cmd delete ${{
 map D delete
 
 cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
+
+# Bindings
+map g top
+map . set hidden!
+map <c-f> $lf -remote "send $id select \"$(fzf)\""
 

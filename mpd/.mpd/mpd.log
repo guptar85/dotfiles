@@ -81,3 +81,35 @@ Jul 30 10:02 : player: played "pal pal soch mein aana na   tujhe meri kasam.opus
 Jul 30 10:08 : player: played "Dil Leke Jaan Leke - Na Tum Jaano Na Hum [2002].opus"
 Jul 30 10:15 : player: played "Hawaon Ne Ye Kaha, Aap Mujhe Achche Lagne Lage (2002) _  Udit Narayan _ 90s Superhit Song.opus"
 Jul 30 12:42 : player: played "Imagine Dragons - Believer (Official Music Video).opus"
+Jul 30 12:47 : player: played "Jennifer Lopez - On The Floor ft. Pitbull.opus"
+Jul 30 12:51 : player: played "Kaho Na Kaho   Murder 2004  HD    Full Song HD   Emraan Hashmi & Mallika Sherawat.opus"
+Jul 30 12:55 : player: played "TONES AND I - DANCE MONKEY (OFFICIAL VIDEO).opus"
+Jul 30 12:58 : player: played "Shakira - Waka Waka (This Time for Africa) (The Official 2010 FIFA World Cup™ Song).opus"
+Aug 01 07:33 : player: played "Pehli Pehli Baar Mohabbat Ki Hai _ Sirf Tum _ Sanjay Kapoor, Priya Gill _ 90's Songs.opus"
+Aug 01 07:35 : config: inotify: auto_update was disabled. enable during compilation phase
+Aug 01 07:46 : player: played "Chhoti Chhoti Raatein (Full Song) Film - Tum Bin... Love Will Find A Way.opus"
+Aug 01 07:51 : player: played "Dheere Dheere Se Meri Zindagi Mein Aana Full Video Song _ Aashiqui _ Anu Agarwal, Rahul Roy.opus"
+Aug 01 09:49 : player: played "Hawaon Ne Ye Kaha, Aap Mujhe Achche Lagne Lage (2002) _  Udit Narayan _ 90s Superhit Song.opus"
+Aug 01 15:50 : update: added /Tip Tip Song - Sooryavanshi _ Akshay Kumar, Katrina Kaif _ Udit N, Alka Y, Tanishk _ Rohit Shetty.opus
+Aug 01 15:53 : player: played "Tip Tip Song - Sooryavanshi _ Akshay Kumar, Katrina Kaif _ Udit N, Alka Y, Tanishk _ Rohit Shetty.opus"
+Aug 01 16:28 : player: played "pal pal soch mein aana na   tujhe meri kasam.opus"
+Aug 01 16:36 : player: played "Dil Leke Jaan Leke - Na Tum Jaano Na Hum [2002].opus"
+Aug 01 16:44 : player: played "Hawaon Ne Ye Kaha, Aap Mujhe Achche Lagne Lage (2002) _  Udit Narayan _ 90s Superhit Song.opus"
+Aug 01 16:47 : player: played "Tip Tip Song - Sooryavanshi _ Akshay Kumar, Katrina Kaif _ Udit N, Alka Y, Tanishk _ Rohit Shetty.opus"
+Aug 01 16:54 : player: played "Imagine Dragons - Believer (Official Music Video).opus"
+Aug 01 16:58 : player: played "Jennifer Lopez - On The Floor ft. Pitbull.opus"
+Aug 01 20:33 : player: played "Kaho Na Kaho   Murder 2004  HD    Full Song HD   Emraan Hashmi & Mallika Sherawat.opus"
+Aug 01 22:43 : config: inotify: auto_update was disabled. enable during compilation phase
+Aug 02 00:34 : player: played "Kaho Na Kaho   Murder 2004  HD    Full Song HD   Emraan Hashmi & Mallika Sherawat.opus"
+Aug 02 07:04 : config: inotify: auto_update was disabled. enable during compilation phase
+Aug 03 15:03 : exception: Failed to open "CoreAudio" (osx); The operation couldn’t be completed. (OSStatus error 560947818.)
+Aug 03 15:04 : exception: Failed to open "CoreAudio" (osx); The operation couldn’t be completed. (OSStatus error 560947818.)
+Aug 03 15:05 : exception: Failed to open "CoreAudio" (osx); The operation couldn’t be completed. (OSStatus error 560947818.)
+Aug 03 15:05 : exception: Failed to open "CoreAudio" (osx); The operation couldn’t be completed. (OSStatus error 560947818.)
+Aug 03 15:05 : exception: Failed to open audio output
+Aug 03 15:05 : exception: Failed to open "CoreAudio" (osx); The operation couldn’t be completed. (OSStatus error 560947818.)
+Aug 03 15:07 : exception: Failed to open "CoreAudio" (osx); The operation couldn’t be completed. (OSStatus error 560947818.)
+Aug 03 15:07 : player: played "Chhoti Chhoti Raatein (Full Song) Film - Tum Bin... Love Will Find A Way.opus"
+Aug 03 15:07 : config: inotify: auto_update was disabled. enable during compilation phase
+Aug 03 15:12 : player: played "pal pal soch mein aana na   tujhe meri kasam.opus"
+Aug 03 15:17 : player: played "Dil Leke Jaan Leke - Na Tum Jaano Na Hum [2002].opus"
