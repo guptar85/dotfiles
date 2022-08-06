@@ -1,3 +1,2 @@
 #!/usr/bin/env zsh
-
-trunc () { cut -c -$(tput cols); }
+#cut -c 1-$(tput cols)

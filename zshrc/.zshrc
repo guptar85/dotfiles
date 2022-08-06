@@ -91,8 +91,6 @@ ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_CONFIG=$HOME/.config/tmux/.tmux.conf
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.zsh_aliases
-source $HOME/.zsh_functions
 
 # User configuration
 
@@ -120,33 +118,10 @@ source $HOME/.zsh_functions
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh. [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export JAVA_HOME=$(/usr/libexec/java_home)
-
-export NODE_EXTRA_CA_CERTS="$HOME/Documents/ZScaler-Certificates/ZscalerRootCertificate-2048-SHA256.pem"
-
-bindkey -v
-export VISUAL=nvim
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-if type rg &>/dev/null; then
-  export FZF_DEFAULT_COMMAND='rg --files --hidden --glob '"'"'!.git/'"'"
-fi
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-#export DOTFILES="$HOME/.dotfiles"
-#for rcfile in "$DOTFILES"/scripts/*.sh; do
-#  source "$rcfile"
-#done
-
-#zle -N 'tmux new-session -d'
-#bindkey '^n' 'tmux new-session -d'
-
-bindkey -s '^o' 'lfcd\n'  # zsh
-bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n'
+export DOTFILES="$HOME/.dotfiles"
+for rcfile in "$DOTFILES"/zshrc.d/*.sh; do
+  source "$rcfile"
+done

@@ -1,0 +1,5 @@
+# Display text "in large, friendly letters"
+dp() { 
+    clear
+    figlet -w "$(tput cols)" "$@" | lolcat
+}

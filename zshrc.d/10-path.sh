@@ -1,0 +1,13 @@
+# Add dotfiles scripts path and subpaths
+#Should be like below due to mess created by ZSH
+export PATH="$DOTFILES/scripts/:$PATH"
+chmod -R +x "$DOTFILES/scripts/"
+
+# Add dotfiles scripts path and subpaths
+#while read -r path; do
+#  export PATH="$path:$PATH"
+#done <<< "$(find "$DOTFILES/scripts" -type d)"
+
+#for path in $(find "$DOTFILES/scripts" -type d)
+#   export PATH="$path:$PATH"
+#done ;
