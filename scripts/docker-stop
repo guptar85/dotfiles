@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+#Start podman
+podman machine stop
+
+#Start minikube
+minikube stop

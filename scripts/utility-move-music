@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+while read -r file; do
+    if [[ "$(file --mime-type "$(stat -f $file)" -b)" == audio/* ]]; then
+        mv $file "$HOME/Downloads/Music" > /dev/null 2>&1
+    fi
+done <<< "$(find "$HOME/Downloads/Youtube-Videos" -type f)"

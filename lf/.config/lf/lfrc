@@ -17,10 +17,15 @@ set ratios '1:2:3'
 cmd open ${{
     test -L $f && f=$(readlink -f $f)
     case $(file --mime-type "$(stat -f $f)" -b) in
-        text/*|application/json|inode/x-empty) $EDITOR $fx;;
+        text/*|application/json|inode/x-empty) nvim $fx;;
         audio/*) mpv --audio-display=no $f ;;
+        image/*) open $f > /dev/null 2>&1 ;;
         video/*) mpv $f -quiet ;;
-        application/pgp-encrypted) $EDITOR $fx ;;
+       	application/vnd.openxmlformats-officedocument.wordprocessingml.document|application/vnd.oasis.opendocument.text) open $f > /dev/null 2>&1 ;;
+       	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|application/octet-stream|application/vnd.oasis.opendocument.spreadsheet|application/vnd.oasis.opendocument.spreadsheet-template)  open $f > /dev/null 2>&1 ;;
+    	application/vnd.openxmlformats-officedocument.presentationml.presentation|application/vnd.oasis.opendocument.presentation-template|application/vnd.oasis.opendocument.presentation|application/vnd.ms-powerpoint) open $f > /dev/null 2>&1 ;;
+	application/pdf|application/vnd*|application/epub*) mupdf-gl $f > /dev/null 2>&1 & ;;	
+        application/pgp-encrypted) nvim $fx ;;
         *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
 }}
@@ -66,6 +71,30 @@ cmd zip ${{
     rm -rf $1
 }}
 
+cmd moveto ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	clear; echo "Move to where?"
+	dest="$(find $HOME/ -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf +m)" &&
+	for x in $fx; do
+		eval mv -iv \"$x\" \"$dest\"
+	done &&
+	terminal-notifier -message "🚚 File(s) moved. File(s) moved to $dest."
+}}
+
+cmd copyto ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	clear; echo "Copy to where?"
+	dest="$(find $HOME/ -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf +m)" &&
+	for x in $fx; do
+		eval cp -ivr \"$x\" \"$dest\"
+	done &&
+	terminal-notifier -message "📋 File(s) copied. File(s) copies to $dest."
+}}
+
+map C copyto
+map M moveto
 map D delete
 
 cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"

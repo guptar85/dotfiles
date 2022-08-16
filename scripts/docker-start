@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+#Start podman
+podman machine start
+
+#Start minikube
+minikube start --driver=podman --kubernetes-version=v1.24.3
+#--no-kubernetes
+
+#Set environment variable to docker-env
+eval $(minikube -p minikube docker-env)
