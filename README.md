@@ -18,6 +18,7 @@ To restore your environment from another machine, copy the Brewfile created from
 <br>
 <br>
 
+Copy executables from usr/bin/ folder to /usr/local/bin
 
 <br> 
 Some helpful links <br>

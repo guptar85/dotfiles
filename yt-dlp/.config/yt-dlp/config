@@ -1,4 +1,4 @@
 -o $HOME/Downloads/Youtube-Videos/%(title)s.%(ext)s
---no-check-certificate
 --quiet
 --progress
+#--no-check-certificate

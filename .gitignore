@@ -1,1 +1,3 @@
 neovim/.config/nvim/undo-dir/*
+mpd/.mpd/mpd.db
+mpd/.mpd/mpdstate
