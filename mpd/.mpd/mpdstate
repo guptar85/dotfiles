@@ -1,9 +1,9 @@
-sw_volume: 98
+sw_volume: 100
 audio_device_state:1:CoreAudio
 audio_device_state:1:Visualizer feed
-state: play
-current: 1
-time: 119.274000
+state: pause
+current: 0
+time: 2096.443000
 random: 0
 repeat: 0
 single: 0
@@ -12,6 +12,5 @@ crossfade: 0
 mixrampdb: 0.000000
 mixrampdelay: -1.000000
 playlist_begin
-0:Mere Sapno Ki Rani 4K Song ： मेरे सपनो की रानी ｜ आराधना ｜ राजेश खन्ना - शर्मिला टैगोर - किशोर कुमार.opus
-1:Kishore Kumar Hit Songs ｜｜ Vol-I.opus
+0:Kishore Kumar Hit Songs ｜｜ Vol-I.opus
 playlist_end
