@@ -180,3 +180,20 @@ Aug 17 18:48 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange Mo
 Aug 17 18:51 : player: played "Shikwa Bhi Tumse [Full Song] Dil Maange More.opus"
 Aug 17 18:55 : player: played "pal pal soch mein aana na   tujhe meri kasam.opus"
 Aug 17 19:03 : player: played "Hawaon Ne Ye Kaha, Aap Mujhe Achche Lagne Lage (2002) _  Udit Narayan _ 90s Superhit Song.opus"
+Aug 18 10:50 : config: inotify: auto_update was disabled. enable during compilation phase
+Aug 18 12:56 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Aug 18 12:57 : config: inotify: auto_update was disabled. enable during compilation phase
+Aug 18 20:21 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Aug 19 09:17 : config: inotify: auto_update was disabled. enable during compilation phase
+Aug 19 10:16 : update: added /Chori Chori Chupke Se ｜ Lucky - No Time For Love ｜ Salman Khan, Sneha Ulaal ｜ Adnan Sami.opus
+Aug 19 10:16 : update: added /Tera Chehra Full Video Song ｜ Sanam Teri Kasam.opus
+Aug 19 10:24 : player: played "Chori Chori Chupke Se ｜ Lucky - No Time For Love ｜ Salman Khan, Sneha Ulaal ｜ Adnan Sami.opus"
+Aug 19 10:29 : player: played "Tera Chehra Full Video Song ｜ Sanam Teri Kasam.opus"
+Aug 19 10:41 : player: played "Jai Ho Slumdog Millionaire (Full Song).opus"
+Aug 20 07:06 : update: added /Mere Sapno Ki Rani 4K Song ： मेरे सपनो की रानी ｜ आराधना ｜ राजेश खन्ना - शर्मिला टैगोर - किशोर कुमार.opus
+Aug 20 07:07 : exception: Failed to open "CoreAudio" (osx); The operation couldn’t be completed. (OSStatus error 560947818.)
+Aug 20 07:07 : exception: Failed to open "CoreAudio" (osx); The operation couldn’t be completed. (OSStatus error 560947818.)
+Aug 20 07:08 : player: played "pal pal soch mein aana na   tujhe meri kasam.opus"
+Aug 20 07:09 : config: inotify: auto_update was disabled. enable during compilation phase
+Aug 20 07:10 : update: added /Kishore Kumar Hit Songs ｜｜ Vol-I.opus
+Aug 20 07:14 : player: played "Mere Sapno Ki Rani 4K Song ： मेरे सपनो की रानी ｜ आराधना ｜ राजेश खन्ना - शर्मिला टैगोर - किशोर कुमार.opus"

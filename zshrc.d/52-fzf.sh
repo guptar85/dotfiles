@@ -9,7 +9,26 @@ fi
 fe() {
 #  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
   IFS=$'\n' files=($(fzf-tmux --preview='less {}' --bind shift-up:preview-page-up,shift-down:preview-page-down --query="$1" --multi --select-1 --exit-0))
-  [[ -n "$files" ]] && ${EDITOR:-nvim} "${files[@]}"
+#   [[ -n "$files" ]] && ${EDITOR:-nvim} "${files[@]}"
+   [[ -n "$files" ]] && nvim "${files[@]}"
+}
+
+ff() {
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+    [[ -n "$files" ]] && {    
+    case $(file --mime-type "$(stat -f $files)" -b) in
+        text/*|application/json|inode/x-empty) nvim $ "${files[@]}";;
+        audio/*) mpv --audio-display=no "${files[@]}";;
+        image/*) open "${files[@]}" > /dev/null 2>&1 ;;
+        video/*) mpv "${files[@]}" -quiet ;;
+       	application/vnd.openxmlformats-officedocument.wordprocessingml.document|application/vnd.oasis.opendocument.text) open "${files[@]}" > /dev/null 2>&1 ;;
+       	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|application/octet-stream|application/vnd.oasis.opendocument.spreadsheet|application/vnd.oasis.opendocument.spreadsheet-template)  open "${files[@]}" > /dev/null 2>&1 ;;
+    	application/vnd.openxmlformats-officedocument.presentationml.presentation|application/vnd.oasis.opendocument.presentation-template|application/vnd.oasis.opendocument.presentation|application/vnd.ms-powerpoint) open "${files[@]}" > /dev/null 2>&1 ;;
+	application/pdf|application/vnd*|application/epub*) mupdf-gl "${files[@]}" > /dev/null 2>&1 & ;;	
+        application/pgp-encrypted) nvim "${files[@]}" ;;
+        *) for f in $fx; do open "${files[@]}" > /dev/null 2> /dev/null & done;;
+    esac
+    } 
 }
 
 # fd - cd to selected directory

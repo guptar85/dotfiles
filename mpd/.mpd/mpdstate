@@ -1,7 +1,9 @@
-sw_volume: 46
+sw_volume: 98
 audio_device_state:1:CoreAudio
 audio_device_state:1:Visualizer feed
-state: stop
+state: play
+current: 1
+time: 119.274000
 random: 0
 repeat: 0
 single: 0
@@ -10,8 +12,6 @@ crossfade: 0
 mixrampdb: 0.000000
 mixrampdelay: -1.000000
 playlist_begin
-0:Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus
-1:Shikwa Bhi Tumse [Full Song] Dil Maange More.opus
-2:pal pal soch mein aana na   tujhe meri kasam.opus
-3:Hawaon Ne Ye Kaha, Aap Mujhe Achche Lagne Lage (2002) _  Udit Narayan _ 90s Superhit Song.opus
+0:Mere Sapno Ki Rani 4K Song ： मेरे सपनो की रानी ｜ आराधना ｜ राजेश खन्ना - शर्मिला टैगोर - किशोर कुमार.opus
+1:Kishore Kumar Hit Songs ｜｜ Vol-I.opus
 playlist_end
