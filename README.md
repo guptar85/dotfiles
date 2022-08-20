@@ -13,10 +13,13 @@ To restore your environment from another machine, copy the Brewfile created from
 <code>
 # install packages from Brewfile in current directory </code>
 <br>
-<code>brew bundle
+<code>brew bundle install
 </code>
 <br>
 <br>
+
+
+<br> 
 Some helpful links <br>
 https://zihao.me/post/managing-dotfiles-with-gnu-stow/ <br>
 https://engineeringfordatascience.com/posts/automate_mac_setup_with_brewfile/ <br>
