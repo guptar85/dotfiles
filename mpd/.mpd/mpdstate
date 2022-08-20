@@ -1,9 +1,8 @@
 sw_volume: 100
 audio_device_state:1:CoreAudio
 audio_device_state:1:Visualizer feed
-state: pause
+state: stop
 current: 0
-time: 2096.443000
 random: 0
 repeat: 0
 single: 0
@@ -12,5 +11,5 @@ crossfade: 0
 mixrampdb: 0.000000
 mixrampdelay: -1.000000
 playlist_begin
-0:Kishore Kumar Hit Songs ｜｜ Vol-I.opus
+0:Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus
 playlist_end
