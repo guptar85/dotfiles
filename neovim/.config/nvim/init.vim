@@ -1,9 +1,5 @@
 "VIM Configuration
 
-if exists('g:vscode')
-" VSCode extension
-else
-" ordinary neovim
     if ! filereadable(expand('$HOME/.config/nvim/autoload/plug.vim'))
         echo "Downloading junegunn/vim-plug to manage plugins..."
         silent !mkdir -p $HOME/.config/nvim/autoload/
@@ -12,7 +8,7 @@ else
     endif
 
     source $HOME/.config/nvim/vim-plug/plugins.vim
-    set number
+"   set number
     "Always show current position
     set ruler
     "Ignore case when searching
@@ -29,6 +25,8 @@ else
     set showmode
     set autoindent
     set expandtab
+    set nocompatible
+    filetype plugin on
     syntax on
     "Default <Leader> key is mapped to \
     let mapleader = ' '
@@ -37,4 +35,3 @@ else
     set clipboard=unnamedplus
     set undofile
     set undodir=$HOME/.config/nvim/undo-dir
-endif
