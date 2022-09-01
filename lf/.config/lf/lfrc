@@ -20,7 +20,7 @@ cmd open ${{
         text/*|application/json|inode/x-empty) nvim $fx;;
         audio/*) mpv --audio-display=no $f ;;
         image/*) open $f > /dev/null 2>&1 ;;
-        video/*) mpv $f -quiet ;;
+        video/*) mpv $f ;;
        	application/vnd.openxmlformats-officedocument.wordprocessingml.document|application/vnd.oasis.opendocument.text) open $f > /dev/null 2>&1 ;;
        	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|application/octet-stream|application/vnd.oasis.opendocument.spreadsheet|application/vnd.oasis.opendocument.spreadsheet-template)  open $f > /dev/null 2>&1 ;;
     	application/vnd.openxmlformats-officedocument.presentationml.presentation|application/vnd.oasis.opendocument.presentation-template|application/vnd.oasis.opendocument.presentation|application/vnd.ms-powerpoint) open $f > /dev/null 2>&1 ;;

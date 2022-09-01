@@ -1,1 +1,2 @@
 neovim/.config/nvim/undo-dir/*
+neovim/.config/nvim/autoload/plugged/*
