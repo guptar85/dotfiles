@@ -33,6 +33,9 @@ require('packer').startup(function(use)
     use 'nvim-telescope/telescope-ui-select.nvim'
     use 'mfussenegger/nvim-dap'
     use 'theHamsta/nvim-dap-virtual-text'
+    use 'vimwiki/vimwiki'
+    use 'L3MON4D3/LuaSnip'
+    use 'saadparwaiz1/cmp_luasnip'
 -- use 'marko-cerovac/material.nvim'
   end
 )
@@ -80,6 +83,7 @@ vim.keymap.set('n', '<leader>w', ':w<CR>', { silent = true })
 vim.keymap.set('n', '<leader>s', ':so $MYVIMRC<CR>')
 vim.keymap.set('n', '[b', ':bnext<CR>')
 vim.keymap.set('n', ']b', ':bprev<CR>')
+vim.keymap.set('n', '<leader>n', ':tabe ~/Documents/VimWiki/index.md<CR>')
 -- global mark I for last edit
 vim.cmd [[autocmd InsertLeave * execute 'normal! mI']]
 
@@ -346,15 +350,8 @@ require "nvim-treesitter.configs".setup {
   }
 }
 
---vim.keymap.set('n', '<c-o>', '<c-o>zz')
---vim.keymap.set('n', '<c-i>', '<c-i>zz')
--- nvim-telescope/telescope-ui-select.nvim
-
-require("telescope").load_extension("ui-select")
-
---vim.keymap.set('i', '<c-o>', '<esc><s-o>')
-vim.keymap.set('n', '<leader>p', ':PackerSync<CR>')
-
+vim.keymap.set('n', '<c-o>', '<c-o>zz')
+vim.keymap.set('n', '<c-i>', '<c-i>zz')
 -- lualine
 require('lualine').setup({
   sections = {
@@ -364,3 +361,144 @@ require('lualine').setup({
     },
   },
 })
+
+-- mfussenegger/nvim-dap
+local dap = require('dap')
+dap.adapters.node2 = {
+  type = 'executable',
+  command = 'node',
+  args = {os.getenv('HOME') .. '/Code/neovim/apps/node-debug2/out/src/nodeDebug.js'},
+}
+
+dap.configurations.javascript = {
+  {
+    name = 'Launch',
+    type = 'node2',
+    request = 'launch',
+    program = '${file}',
+    cwd = vim.fn.getcwd(),
+    sourceMaps = true,
+    protocol = 'inspector',
+    console = 'integratedTerminal',
+  },
+  {
+    -- For this to work you need to make sure the node process is started with the `--inspect` flag.
+    name = 'Attach to process',
+    type = 'node2',
+    request = 'attach',
+    processId = require'dap.utils'.pick_process,
+  },
+}
+
+require('dap').set_log_level('INFO')
+dap.defaults.fallback.terminal_win_cmd = '20split new'
+vim.fn.sign_define('DapBreakpoint', {text='🟥', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpointRejected', {text='🟦', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapStopped', {text='⭐️', texthl='', linehl='', numhl=''})
+
+vim.keymap.set('n', '<leader>dh', function() require"dap".toggle_breakpoint() end)
+vim.keymap.set('n', '<leader>dH', ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
+vim.keymap.set('n', '<A-k>', function() require"dap".step_out() end)
+vim.keymap.set('n', "<A-l>", function() require"dap".step_into() end)
+vim.keymap.set('n', '<A-j>', function() require"dap".step_over() end)
+vim.keymap.set('n', '<A-h>', function() require"dap".continue() end)
+vim.keymap.set('n', '<leader>dn', function() require"dap".run_to_cursor() end)
+vim.keymap.set('n', '<leader>dc', function() require"dap".terminate() end)
+vim.keymap.set('n', '<leader>dR', function() require"dap".clear_breakpoints() end)
+vim.keymap.set('n', '<leader>de', function() require"dap".set_exception_breakpoints({"all"}) end)
+vim.keymap.set('n', '<leader>da', function() require"debugHelper".attach() end)
+vim.keymap.set('n', '<leader>dA', function() require"debugHelper".attachToRemote() end)
+vim.keymap.set('n', '<leader>di', function() require"dap.ui.widgets".hover() end)
+vim.keymap.set('n', '<leader>d?', function() local widgets=require"dap.ui.widgets";widgets.centered_float(widgets.scopes) end)
+vim.keymap.set('n', '<leader>dk', ':lua require"dap".up()<CR>zz')
+vim.keymap.set('n', '<leader>dj', ':lua require"dap".down()<CR>zz')
+vim.keymap.set('n', '<leader>dr', ':lua require"dap".repl.toggle({}, "vsplit")<CR><C-w>l')
+
+-- nvim-telescope/telescope-dap.nvim
+require('telescope').load_extension('dap')
+vim.keymap.set('n', '<leader>ds', ':Telescope dap frames<CR>')
+-- vim.keymap.set('n', '<leader>dc', ':Telescope dap commands<CR>')
+vim.keymap.set('n', '<leader>db', ':Telescope dap list_breakpoints<CR>')
+
+require('nvim-dap-virtual-text').setup()
+
+-- nvim-telescope/telescope-ui-select.nvim
+require("telescope").load_extension("ui-select")
+--vim.keymap.set('i', '<c-o>', '<esc><s-o>')
+vim.keymap.set('n', '<leader>p', ':PackerSync<CR>')
+
+-- 'L3MON4D3/LuaSnip'
+local has_words_before = function()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
+local ls = require("luasnip")
+local cmp = require("cmp")
+
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      ls.lsp_expand(args.body)
+    end,
+  },
+  mapping = {
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+    ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if ls.expand_or_jumpable() then
+        ls.expand_or_jump()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if ls.jumpable(-1) then
+        ls.jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+  },
+  sources = {
+    { name = 'npm' },
+    { name = 'luasnip' },
+    { name = 'nvim_lsp' },
+    { name = 'buffer', keyword_length = 5 },
+  },
+  -- formatting = {
+  --   format = lspkind.cmp_format({with_text = false, maxwidth = 50})
+  -- }
+})
+
+local t = function(str)
+    return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+_G.expand = function ()
+  -- print("hurray!!")
+  if ls.expand_or_jumpable() then
+    return t("<Plug>luasnip-expand-or-jump")
+  end
+  return ''
+end
+
+_G.expand_back = function ()
+  -- print("hurray!!")
+  if ls.jumpable(-1) then
+    return t("<Plug>luasnip-jump-prev")
+  end
+  return ''
+end
+
+vim.api.nvim_set_keymap('i', '<c-j>', 'v:lua.expand()', { expr = true })
+vim.api.nvim_set_keymap('i', '<c-k>', 'v:lua.expand_back()', { expr = true })
+vim.api.nvim_set_keymap('s', '<c-j>', 'v:lua.expand()', { expr = true })
+vim.api.nvim_set_keymap('s', '<c-k>', 'v:lua.expand_back()', { expr = true })
+
+vim.keymap.set('n', '<leader>ls', '<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>')
