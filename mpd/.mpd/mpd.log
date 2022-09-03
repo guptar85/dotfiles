@@ -199,3 +199,13 @@ Aug 20 07:10 : update: added /Kishore Kumar Hit Songs ｜｜ Vol-I.opus
 Aug 20 07:14 : player: played "Mere Sapno Ki Rani 4K Song ： मेरे सपनो की रानी ｜ आराधना ｜ राजेश खन्ना - शर्मिला टैगोर - किशोर कुमार.opus"
 Aug 20 10:44 : player: played "Kishore Kumar Hit Songs ｜｜ Vol-I.opus"
 Aug 20 13:48 : config: inotify: auto_update was disabled. enable during compilation phase
+Sep 02 19:22 : config: inotify: auto_update was disabled. enable during compilation phase
+Sep 02 19:55 : config: inotify: auto_update was disabled. enable during compilation phase
+Sep 02 20:04 : config: inotify: auto_update was disabled. enable during compilation phase
+Sep 02 20:04 : exception: Failed to open /Users/rahul/.mpd/playlists: No such file or directory
+Sep 03 08:42 : exception: Failed to open /Users/rahul/.mpd/playlists: No such file or directory
+Sep 03 08:44 : exception: Failed to open /Users/rahul/.mpd/playlists: No such file or directory
+Sep 03 08:44 : exception: Failed to open /Users/rahul/.mpd/playlists: No such file or directory
+Sep 03 08:44 : update: added /Aashiqui 2 ❤️ Movie All Best Songs ｜ Shraddha Kapoor & Aditya Roy Kapur ｜ Romantic Love Gaane.opus
+Sep 03 08:44 : exception: Failed to open /Users/rahul/.mpd/playlists: No such file or directory
+Sep 03 09:32 : player: played "Aashiqui 2 ❤️ Movie All Best Songs ｜ Shraddha Kapoor & Aditya Roy Kapur ｜ Romantic Love Gaane.opus"
