@@ -25,3 +25,5 @@ Some helpful links <br>
 https://zihao.me/post/managing-dotfiles-with-gnu-stow/ <br>
 https://engineeringfordatascience.com/posts/automate_mac_setup_with_brewfile/ <br>
 https://medium.com/@protiumx/bash-gnu-stow-take-a-walk-while-your-new-macbook-is-being-set-up-351a6f2f9225
+
+![](img/2022-09-04-16-39-42.png)

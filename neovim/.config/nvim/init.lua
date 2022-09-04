@@ -33,9 +33,10 @@ require('packer').startup(function(use)
     use 'nvim-telescope/telescope-ui-select.nvim'
     use 'mfussenegger/nvim-dap'
     use 'theHamsta/nvim-dap-virtual-text'
-    use 'vimwiki/vimwiki'
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
+    use 'ekickx/clipboard-image.nvim'
+    use { 'vimwiki/vimwiki', branch = 'master' }
 -- use 'marko-cerovac/material.nvim'
   end
 )
@@ -83,7 +84,18 @@ vim.keymap.set('n', '<leader>w', ':w<CR>', { silent = true })
 vim.keymap.set('n', '<leader>s', ':so $MYVIMRC<CR>')
 vim.keymap.set('n', '[b', ':bnext<CR>')
 vim.keymap.set('n', ']b', ':bprev<CR>')
+
+
+-- vimwiki/vimwiki
+ vim.cmd([[
+     let g:vimwiki_list = [{'path': '$HOME/Documents/VimWiki/', 'syntax': 'markdown', 'ext': '.md'}]
+]])
+vim.cmd([[
+    let g:vimwiki_global_ext = 0
+]])
+--vim.cmd([[au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab]])
 vim.keymap.set('n', '<leader>n', ':tabe ~/Documents/VimWiki/index.md<CR>')
+
 -- global mark I for last edit
 vim.cmd [[autocmd InsertLeave * execute 'normal! mI']]
 
@@ -482,3 +494,9 @@ vim.api.nvim_set_keymap('s', '<c-j>', 'v:lua.expand()', { expr = true })
 vim.api.nvim_set_keymap('s', '<c-k>', 'v:lua.expand_back()', { expr = true })
 
 vim.keymap.set('n', '<leader>ls', '<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>')
+
+require'clipboard-image'.setup {
+  default = {
+   img_dir = {"%:p:h", "images/"}
+  }
+}
