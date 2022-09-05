@@ -118,13 +118,67 @@ require('formatter').setup({
             stdin = true
           }
         end
+    	},
+       json = {
+        -- prettierd
+       function()
+          return {
+            exe = "jq",
+            stdin = true
+          }
+        end
+    	},
+       css = {
+        -- prettierd
+       function()
+          return {
+            exe = "prettierd",
+            stdin = true
+          }
+        end
+    	},
+        markdown = {
+        -- prettierd
+       function()
+          return {
+            exe = "prettierd",
+            stdin = true
+          }
+        end
+    	},
+        html = {
+        -- prettierd
+       function()
+          return {
+            exe = "prettierd",
+            stdin = true
+          }
+        end
+    	},
+        xml = {
+        -- prettierd
+       function()
+          return {
+            exe = "prettierd",
+            stdin = true
+          }
+        end
+    	},
+        yaml = {
+        -- prettierd
+       function()
+          return {
+            exe = "prettierd",
+            stdin = true
+          }
+        end
     	}
     }
 })
 
 -- neovim/nvim-lspconfig
 local nvim_lsp = require'lspconfig'
-local servers = { 'tsserver' }
+local servers = { 'tsserver', 'bashls', 'luau_lsp' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -496,7 +550,8 @@ vim.api.nvim_set_keymap('s', '<c-k>', 'v:lua.expand_back()', { expr = true })
 vim.keymap.set('n', '<leader>ls', '<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>')
 
 require'clipboard-image'.setup {
-  default = {
-   img_dir = {"%:p:h", "images/"}
-  }
+   default = {
+    img_dir = {"%:p:h", "images/"}
+   }
 }
+vim.keymap.set('n', '<leader>P', ':PasteImg<CR>')

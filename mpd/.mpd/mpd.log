@@ -209,3 +209,17 @@ Sep 03 08:44 : exception: Failed to open /Users/rahul/.mpd/playlists: No such fi
 Sep 03 08:44 : update: added /Aashiqui 2 ❤️ Movie All Best Songs ｜ Shraddha Kapoor & Aditya Roy Kapur ｜ Romantic Love Gaane.opus
 Sep 03 08:44 : exception: Failed to open /Users/rahul/.mpd/playlists: No such file or directory
 Sep 03 09:32 : player: played "Aashiqui 2 ❤️ Movie All Best Songs ｜ Shraddha Kapoor & Aditya Roy Kapur ｜ Romantic Love Gaane.opus"
+Sep 04 19:33 : exception: Failed to open /Users/rahul/.mpd/playlists: No such file or directory
+Sep 04 19:33 : exception: Failed to open "CoreAudio" (osx); The operation couldn’t be completed. (OSStatus error 560947818.)
+Sep 04 19:33 : exception: Failed to open /Users/rahul/.mpd/playlists: No such file or directory
+Sep 04 19:33 : player: played "＂Sun Raha Hai Na Tu Female Version＂ By Shreya Ghoshal Aashiqui 2 Full Video Song ｜.opus"
+Sep 04 19:34 : config: inotify: auto_update was disabled. enable during compilation phase
+Sep 04 19:34 : exception: Failed to open /Users/rahul/.mpd/playlists: No such file or directory
+Sep 04 19:34 : exception: Failed to open /Users/rahul/.mpd/playlists: No such file or directory
+Sep 04 19:37 : player: played "＂Sun Raha Hai Na Tu Female Version＂ By Shreya Ghoshal Aashiqui 2 Full Video Song ｜.opus"
+Sep 04 19:38 : exception: Failed to open /Users/rahul/.mpd/playlists: No such file or directory
+Sep 04 19:38 : player: played "Aashiqui 2 ❤️ Movie All Best Songs ｜ Shraddha Kapoor & Aditya Roy Kapur ｜ Romantic Love Gaane.opus"
+Sep 04 19:38 : exception: Failed to open /Users/rahul/.mpd/playlists: No such file or directory
+Sep 04 19:41 : exception: Failed to open /Users/rahul/.mpd/playlists: No such file or directory
+Sep 05 08:14 : player: played "Bulleya – Ae Dil Hai Mushkil ｜ Karan Johar ｜ Aishwarya, Ranbir, Anushka ｜ Pritam ｜ Amit Mishra.opus"
+Sep 05 08:15 : config: inotify: auto_update was disabled. enable during compilation phase
