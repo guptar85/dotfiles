@@ -223,3 +223,5 @@ Sep 04 19:38 : exception: Failed to open /Users/rahul/.mpd/playlists: No such fi
 Sep 04 19:41 : exception: Failed to open /Users/rahul/.mpd/playlists: No such file or directory
 Sep 05 08:14 : player: played "Bulleya – Ae Dil Hai Mushkil ｜ Karan Johar ｜ Aishwarya, Ranbir, Anushka ｜ Pritam ｜ Amit Mishra.opus"
 Sep 05 08:15 : config: inotify: auto_update was disabled. enable during compilation phase
+Sep 05 09:31 : player: played "Bulleya – Ae Dil Hai Mushkil ｜ Karan Johar ｜ Aishwarya, Ranbir, Anushka ｜ Pritam ｜ Amit Mishra.opus"
+Sep 06 07:34 : config: inotify: auto_update was disabled. enable during compilation phase
