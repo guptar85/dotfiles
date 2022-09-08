@@ -1,9 +1,9 @@
-sw_volume: 54
+sw_volume: 80
 audio_device_state:1:CoreAudio
 audio_device_state:1:Visualizer feed
 state: pause
-current: 8
-time: 105.887000
+current: 1
+time: 31.528000
 random: 0
 repeat: 0
 single: 0
@@ -12,15 +12,7 @@ crossfade: 0
 mixrampdb: 0.000000
 mixrampdelay: -1.000000
 playlist_begin
-0:Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus
-1:Chal Akela Chal Akela with lyrics ｜ चल अकेला चल अकेला ｜ Mukesh ｜ Sambandh.opus
-2:Chori Chori Chupke Se ｜ Lucky - No Time For Love ｜ Salman Khan, Sneha Ulaal ｜ Adnan Sami.opus
-3:First Time Dekha - Bollywood 4K Romantic Song _ Jaan Tere Naam _ Ronit Roy _ Farheen _ Kumar Sanu.opus
-4:Humko Sirf Tumse Pyar Hai _ Barsaat _ Bobby Deol, Twinkle Khanna _ Kumar Sanu, Alka Yagnik_90's Hits.opus
-5:Dilbar Dilbar 4K Video Song _ Sirf Tum _ Alka Yagnik _ Sanjay K, Sushmita Sen _ Chain Kho Gaya Hai.opus
-6:Jai Ho Slumdog Millionaire (Full Song).opus
-7:Dil Cheer Ke Dekh _ Kumar Sanu _ Nadeem Shravan _ Rang _ 90's Sad Love Song.opus
-8:Tip Tip Song - Sooryavanshi _ Akshay Kumar, Katrina Kaif _ Udit N, Alka Y, Tanishk _ Rohit Shetty.opus
-9:Carvaan⧸ Weekend Classic Radio Show ｜ 90s Special ｜ 90s स्पेशल ｜ Jaadu Teri Nazar ｜ Pehla Pehla Pyar.opus
-10:Anwesha_01.mp3
+0:Tip Tip Song - Sooryavanshi _ Akshay Kumar, Katrina Kaif _ Udit N, Alka Y, Tanishk _ Rohit Shetty.opus
+1:Saathiya Tune Kya Kiya - Video Song ｜ Love ｜ Salman Khan,Revathi ｜ Ishtar Music.opus
+2:Mere Sapno Ki Rani 4K Song ： मेरे सपनो की रानी ｜ आराधना ｜ राजेश खन्ना - शर्मिला टैगोर - किशोर कुमार.opus
 playlist_end

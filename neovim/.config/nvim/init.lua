@@ -49,7 +49,7 @@ require('packer').startup(function(use)
                                         show_tabs_always = false, -- this shows tabs only when there are more than one tab or if the first tab is named
                                         show_devicons = true, -- this shows devicons in buffer section
                                         show_bufnr = false, -- this appends [bufnr] to buffer section,
-                                        show_filename_only = false, -- shows base filename only instead of relative path in filename
+                                        show_filename_only = true, -- shows base filename only instead of relative path in filename
                                         modified_icon = "+ ", -- change the default modified icon
                                         modified_italic = false, -- set to true by default; this determines whether the filename turns italic if modified
                                         show_tabs_only = false, -- this shows only tabs instead of tabs + buffers
@@ -107,9 +107,9 @@ vim.cmd([[set path=$PWD/**]])
 vim.keymap.set('n', '<leader>v', ':e $MYVIMRC<CR>')
 vim.keymap.set('n', '<leader>w', ':w<CR>', { silent = true })
 vim.keymap.set('n', '<leader>s', ':so $MYVIMRC<CR>')
-vim.keymap.set('n', '[b', ':bnext<CR>')
-vim.keymap.set('n', ']b', ':bprev<CR>')
-
+vim.keymap.set('n', 'gt', ':bnext<CR>')
+vim.keymap.set('n', 'gT', ':bprev<CR>')
+vim.keymap.set('n', '<leader>x', ':bd<CR>')
 
 -- vimwiki/vimwiki
  vim.cmd([[
@@ -251,6 +251,7 @@ require'nvim-treesitter.configs'.setup {
   },
   sync_install = false,
   ignore_install = {},
+  auto_install = true,
   ensure_installed = {
     "yaml",
     "html",
@@ -434,7 +435,7 @@ _G.send_line_to_terminal = function()
   vim.api.nvim_chan_send(chan_id, curr_line .. '\n')
 end
 
-vim.keymap.set('n', '<leader>x', ':lua send_line_to_terminal()<CR>')
+vim.keymap.set('n', '<leader>l', ':lua send_line_to_terminal()<CR>')
 
 require "nvim-treesitter.configs".setup {
   playground = {
