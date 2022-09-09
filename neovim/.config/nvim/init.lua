@@ -15,7 +15,7 @@ require('packer').startup(function(use)
             requires = { 'neovim/nvim-lspconfig', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer' }
     }
   	use 'lewis6991/gitsigns.nvim'
-    use 'folke/tokyonight.nvim'
+    -- use 'folke/tokyonight.nvim'
   	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'voldikss/vim-floaterm'
     use {
@@ -72,6 +72,7 @@ require('packer').startup(function(use)
         require('trouble').setup {} end
     }   
     use 'folke/lsp-colors.nvim'
+    use 'tanvirtin/monokai.nvim'
     use { 'vimwiki/vimwiki', branch = 'master' }
 -- use 'marko-cerovac/material.nvim'
   end
@@ -106,7 +107,7 @@ opt.autoindent = true
 opt.ruler = true
 opt.undofile = true
 vim.opt.undodir = vim.fn.stdpath('config') .. '/undo-dir'
---opt.clipboard = 'unnamedplus'
+opt.clipboard = 'unnamedplus'
 cmd('filetype plugin on')
 opt.backup = false
 g.netrw_banner = false
@@ -118,8 +119,8 @@ vim.cmd([[set path=$PWD/**]])
 vim.keymap.set('n', '<leader>v', ':e $MYVIMRC<CR>')
 vim.keymap.set('n', '<leader>w', ':w<CR>', { silent = true })
 vim.keymap.set('n', '<leader>s', ':so $MYVIMRC<CR>')
-vim.keymap.set('n', 'gt', ':bnext<CR>')
-vim.keymap.set('n', 'gT', ':bprev<CR>')
+vim.keymap.set('n', '<leader>t', ':bnext<CR>')
+vim.keymap.set('n', '<leader>T', ':bprev<CR>')
 vim.keymap.set('n', '<leader>x', ':bd<CR>')
 
 -- vimwiki/vimwiki
@@ -214,12 +215,57 @@ require('formatter').setup({
 vim.cmd([[let g:shfmt_opt="-ci"]])
 
 -- neovim/nvim-lspconfig
+
+-- Mappings.
+local opts = { noremap=true, silent=true }
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+    local bufopts = { noremap=true, silent=true, buffer=bufnr }
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+    vim.keymap.set('n', '<space>K', vim.lsp.buf.signature_help, bufopts)
+    vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
+    vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, bufopts)
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+    vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+    vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+    vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+    vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+end
+
 local nvim_lsp = require'lspconfig'
 local servers = { 'tsserver', 'bashls', 'luau_lsp' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    -- on_attach = on_attach,
+    flags = {
+        debounce_text_changes = 150,
+    }
+    -- capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   }
+end
+
+require'lspconfig'.tsserver.setup{
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  root_dir = function() return vim.loop.cwd() end      -- run lsp for javascript in any directory
+}
+
+-- this is for diagnositcs signs on the line number column
+-- use this to beautify the plain E W signs to more fun ones
+-- !important nerdfonts needs to be setup for this to work in your terminal
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " } 
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl= hl, numhl = hl })
 end
 
 vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end)
@@ -244,7 +290,8 @@ vim.opt.fillchars = {
   vertright = '█',
   verthoriz = '█',
 }
-vim.cmd 'colorscheme tokyonight'
+-- vim.cmd 'colorscheme tokyonight'
+vim.cmd 'colorscheme monokai'
 
 -- nvim-treesitter/nvim-treesitter
 cmd('set foldmethod=expr')
