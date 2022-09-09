@@ -31,6 +31,11 @@ require('packer').startup(function(use)
     }
     use 'nvim-telescope/telescope-dap.nvim'
     use 'nvim-telescope/telescope-ui-select.nvim'
+    use 'cljoly/telescope-repo.nvim'
+    use {
+      'AckslD/nvim-neoclip.lua',
+      config = function() require('neoclip').setup() end,
+    }
     use 'mfussenegger/nvim-dap'
     use 'theHamsta/nvim-dap-virtual-text'
     use 'L3MON4D3/LuaSnip'
@@ -60,7 +65,13 @@ require('packer').startup(function(use)
                     set sessionoptions+=tabpages,globals " store tabpages and globals in session
                ]]
         end,
-   }
+    }
+    use {
+      'folke/trouble.nvim',
+      config = function()
+        require('trouble').setup {} end
+    }   
+    use 'folke/lsp-colors.nvim'
     use { 'vimwiki/vimwiki', branch = 'master' }
 -- use 'marko-cerovac/material.nvim'
   end
@@ -95,7 +106,7 @@ opt.autoindent = true
 opt.ruler = true
 opt.undofile = true
 vim.opt.undodir = vim.fn.stdpath('config') .. '/undo-dir'
-opt.clipboard = 'unnamedplus'
+--opt.clipboard = 'unnamedplus'
 cmd('filetype plugin on')
 opt.backup = false
 g.netrw_banner = false
@@ -335,8 +346,15 @@ local fixfolds = {
 }
 
 local actions = require("telescope.actions")
+local trouble = require("trouble.providers.telescope")
 
 require('telescope').setup {
+    defaults = {
+        mappings = {
+            i = { ["<c-t>"] = trouble.open_with_trouble },
+            n = { ["<c-t>"] = trouble.open_with_trouble },
+        },
+    },
 	pickers = {
 		buffers = fixfolds,
 		find_files = fixfolds,
@@ -379,6 +397,7 @@ vim.keymap.set('n', '<leader>fg', ':Telescope git_branches<CR>')
 vim.keymap.set('n', '<c-\\>', ':Telescope buffers<CR>')
 vim.keymap.set('n', '<leader>fs', ':Telescope lsp_document_symbols<CR>')
 vim.keymap.set('n', '<leader>ff', ':Telescope live_grep<CR>')
+vim.keymap.set('n', '<leader>f', ':Telescope repo list<CR>')
 vim.keymap.set('n', '<leader>FF', ':Telescope grep_string<CR>')
 
 --Extra config for open terminal from Neovim
@@ -582,3 +601,32 @@ require'clipboard-image'.setup {
    }
 }
 vim.keymap.set('n', '<leader>P', ':PasteImg<CR>')
+
+--'folke/trouble.nvim'
+vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
+  {silent = true, noremap = true}
+)
+
+-- neoclip
+--vim.keymap.set("n", ",tn", [[<Cmd>lua require('neoclip').toggle()<CR>]], { noremap = true, silent = true })
+vim.keymap.set(
+  "n",
+  "<C-n>",
+  [[<Cmd>lua require('telescope').extensions.neoclip.default()<CR>]],
+  { noremap = true, silent = false }
+)
