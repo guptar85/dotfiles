@@ -27,3 +27,7 @@ dp() {
 syn() {
   curl --silent "https://api.dictionaryapi.dev/api/v2/entries/en/${1}" | ijq '.[] #.meanings[].definitions[].synonyms[]'
 }
+
+# ytfd() {
+#     ytfzf -L $@ | awk '/youtube/ {print $0}' | xargs yt-dlp 
+# }
