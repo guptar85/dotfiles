@@ -9,8 +9,9 @@ require('packer').startup(function(use)
 	  use 'wbthomason/packer.nvim'
 -- Used for comments in a file 
 -- Comment stuff out. Use gcc to comment out a line (takes a count), gc to comment out the target of a motion (for example, gcap to comment out a paragraph), gc in visual mode to comment out the selection, and gc in operator pending mode to target a comment. You can also use it as a command, either with a range like :7,17Commentary, or as part of a :global invocation like with :g/TODO/Commentary.
-    use 'tpope/vim-commentary'
-	  use 'mhartington/formatter.nvim'
+     use 'lewis6991/impatient.nvim'
+     use 'tpope/vim-commentary'
+	 use 'mhartington/formatter.nvim'
     use { 'hrsh7th/nvim-cmp', 
             requires = { 'neovim/nvim-lspconfig', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer' }
     }
@@ -73,7 +74,13 @@ require('packer').startup(function(use)
     }   
     use 'folke/lsp-colors.nvim'
     use 'tanvirtin/monokai.nvim'
+    -- use 'tpope/vim-surround'
+    use {
+    	"windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
     use { 'vimwiki/vimwiki', branch = 'master' }
+    use 'ggandor/leap.nvim'
 -- use 'marko-cerovac/material.nvim'
   end
 )
@@ -677,3 +684,10 @@ vim.keymap.set(
   [[<Cmd>lua require('telescope').extensions.neoclip.default()<CR>]],
   { noremap = true, silent = false }
 )
+
+-- ggandor/leap.nvim
+require('leap').set_default_keymaps()
+vim.cmd[[autocmd ColorScheme * lua require('leap').init_highlight(true)]]
+
+vim.keymap.set("i", "<S-Tab>", "<c-p>", {noremap = true})
+vim.keymap.set("i", "<Tab>", "<c-n>", {noremap = true})
