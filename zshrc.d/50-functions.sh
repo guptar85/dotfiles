@@ -31,3 +31,7 @@ syn() {
 # ytfd() {
 #     ytfzf -L $@ | awk '/youtube/ {print $0}' | xargs yt-dlp 
 # }
+
+cv() {
+    ffmpeg -i $1 -c:v copy -c:a copy $2
+}

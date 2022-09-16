@@ -689,5 +689,5 @@ vim.keymap.set(
 require('leap').set_default_keymaps()
 vim.cmd[[autocmd ColorScheme * lua require('leap').init_highlight(true)]]
 
-vim.keymap.set("i", "<S-Tab>", "<c-p>", {noremap = true})
-vim.keymap.set("i", "<Tab>", "<c-n>", {noremap = true})
+-- vim.keymap.set("i", "<S-Tab>", "<c-p>", {noremap = true})
+-- vim.keymap.set("i", "<Tab>", "<c-n>", {noremap = true})
