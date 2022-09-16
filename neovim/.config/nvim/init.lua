@@ -225,8 +225,17 @@ require('formatter').setup({
             stdin = true
           }
         end
-    	}
-    }
+    	},
+        lua = {
+        --lua-fmt
+        function()
+            return {
+                exe = "lua-fmt",
+                    stdin = true
+                }
+	end
+        }
+   }
 })
 vim.cmd([[let g:shfmt_opt="-ci"]])
 
@@ -690,7 +699,7 @@ vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
 --vim.keymap.set("n", ",tn", [[<Cmd>lua require('neoclip').toggle()<CR>]], { noremap = true, silent = true })
 vim.keymap.set(
   "n",
-  "<C-n>",
+  "<leader>r",
   [[<Cmd>lua require('telescope').extensions.neoclip.default()<CR>]],
   { noremap = true, silent = false }
 )
