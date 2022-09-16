@@ -73,7 +73,9 @@ require('packer').startup(function(use)
         require('trouble').setup {} end
     }   
     use 'folke/lsp-colors.nvim'
+    use 'NTBBloodbath/rest.nvim'
     use 'tanvirtin/monokai.nvim'
+    use 'glepnir/dashboard-nvim'
     -- use 'tpope/vim-surround'
     use {
     	"windwp/nvim-autopairs",
@@ -81,6 +83,13 @@ require('packer').startup(function(use)
     }
     use { 'vimwiki/vimwiki', branch = 'master' }
     use 'ggandor/leap.nvim'
+    -- use {
+    --     'folke/which-key.nvim',
+    --       config = function()
+    --         require("which-key").setup {
+    --     }
+    --   end
+    -- }
 -- use 'marko-cerovac/material.nvim'
   end
 )
@@ -327,7 +336,8 @@ require'nvim-treesitter.configs'.setup {
     "markdown",
     "sql",
     "bash",
-    "dockerfile"
+    "dockerfile",
+    "http"
   },
 }
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
@@ -691,3 +701,24 @@ vim.cmd[[autocmd ColorScheme * lua require('leap').init_highlight(true)]]
 
 -- vim.keymap.set("i", "<S-Tab>", "<c-p>", {noremap = true})
 -- vim.keymap.set("i", "<Tab>", "<c-n>", {noremap = true})
+
+vim.keymap.set(
+  "n",
+  "<leader>c",
+  [[<Cmd>lua require('rest-nvim').run()<CR>]],
+  { noremap = true, silent = false }
+)
+
+vim.keymap.set(
+  "n",
+  "<leader>cp",
+  [[<Cmd>lua require('rest-nvim').run(true)<CR>]],
+  { noremap = true, silent = false }
+)
+
+vim.keymap.set(
+  "n",
+  "<leader>cl",
+  [[<Cmd>lua require('rest-nvim').last()<CR>]],
+  { noremap = true, silent = false }
+)
