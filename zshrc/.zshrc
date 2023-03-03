@@ -125,3 +125,12 @@ export DOTFILES="$HOME/.dotfiles"
 for rcfile in "$DOTFILES"/zshrc.d/*.sh; do
   source "$rcfile"
 done
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+#To use fzf in Vim, add the following line to your .vimrc:
+set rtp+=/opt/homebrew/opt/fzf

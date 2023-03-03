@@ -83,6 +83,7 @@ require('packer').startup(function(use)
     }
     use { 'vimwiki/vimwiki', branch = 'master' }
     use 'ggandor/leap.nvim'
+    use 'renerocksai/calendar-vim'
     -- use {
     --     'folke/which-key.nvim',
     --       config = function()
@@ -109,7 +110,7 @@ opt.smartcase = true
 opt.incsearch = true
 -- opt.relativenumber = true
 vim.cmd('set number')
-vim.cmd('set norelativenumber')
+vim.cmd('set relativenumber')
 -- set diffopt+=vertical " starts diff mode in vertical split
 opt.cmdheight = 1
 -- set shortmess+=c " don't need to press enter so often
@@ -319,7 +320,7 @@ vim.opt.fillchars = {
 vim.cmd 'colorscheme monokai'
 
 -- nvim-treesitter/nvim-treesitter
-cmd('set foldmethod=expr')
+-- cmd('set foldmethod=expr')
 cmd('set foldexpr=nvim_treesitter#foldexpr()')
 
 require'nvim-treesitter.configs'.setup {
@@ -730,4 +731,19 @@ vim.keymap.set(
   "<leader>cl",
   [[<Cmd>lua require('rest-nvim').last()<CR>]],
   { noremap = true, silent = false }
+)
+
+vim.cmd[[
+    let g:calendar_weeknm = 2 
+]]
+
+vim.cmd[[
+  let g:calendar_number_of_months = 5
+]]
+
+vim.keymap.set(
+  "n",
+  "<leader>C",
+  ":CalendarH<CR>",
+  { noremap = true, silent = true }
 )

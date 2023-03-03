@@ -323,3 +323,153 @@ Sep 07 15:48 : player: played "Saathiya Tune Kya Kiya - Video Song ｜ Love ｜ 
 Sep 07 15:52 : player: played "Mere Sapno Ki Rani 4K Song ： मेरे सपनो की रानी ｜ आराधना ｜ राजेश खन्ना - शर्मिला टैगोर - किशोर कुमार.opus"
 Sep 08 11:28 : config: inotify: auto_update was disabled. enable during compilation phase
 Sep 09 10:57 : player: played "Saathiya Tune Kya Kiya - Video Song ｜ Love ｜ Salman Khan,Revathi ｜ Ishtar Music.opus"
+Sep 13 11:57 : player: played "Mere Sapno Ki Rani 4K Song ： मेरे सपनो की रानी ｜ आराधना ｜ राजेश खन्ना - शर्मिला टैगोर - किशोर कुमार.opus"
+Sep 13 11:58 : config: inotify: auto_update was disabled. enable during compilation phase
+Sep 13 19:18 : player: played "Mere Sapno Ki Rani 4K Song ： मेरे सपनो की रानी ｜ आराधना ｜ राजेश खन्ना - शर्मिला टैगोर - किशोर कुमार.opus"
+Sep 14 12:18 : config: inotify: auto_update was disabled. enable during compilation phase
+Sep 15 19:33 : player: played "Mere Sapno Ki Rani 4K Song ： मेरे सपनो की रानी ｜ आराधना ｜ राजेश खन्ना - शर्मिला टैगोर - किशोर कुमार.opus"
+Sep 16 09:06 : config: inotify: auto_update was disabled. enable during compilation phase
+Sep 16 09:27 : player: played "Mere Sapno Ki Rani 4K Song ： मेरे सपनो की रानी ｜ आराधना ｜ राजेश खन्ना - शर्मिला टैगोर - किशोर कुमार.opus"
+Sep 16 09:29 : config: inotify: auto_update was disabled. enable during compilation phase
+Sep 16 20:22 : player: played "Mere Sapno Ki Rani 4K Song ： मेरे सपनो की रानी ｜ आराधना ｜ राजेश खन्ना - शर्मिला टैगोर - किशोर कुमार.opus"
+Sep 19 08:59 : config: inotify: auto_update was disabled. enable during compilation phase
+Sep 19 14:46 : exception: Failed to open /Users/ragpt/Downloads/Music: Operation not permitted
+Sep 19 14:46 : exception: Failed to decode /Users/ragpt/Downloads/Music/Saathiya Tune Kya Kiya - Video Song ｜ Love ｜ Salman Khan,Revathi ｜ Ishtar Music.opus; Failed to open '/Users/ragpt/Downloads/Music/Saathiya Tune Kya Kiya - Video Song ｜ Love ｜ Salman Khan,Revathi ｜ Ishtar Music.opus': Operation not permitted
+Sep 19 14:46 : player: played "Saathiya Tune Kya Kiya - Video Song ｜ Love ｜ Salman Khan,Revathi ｜ Ishtar Music.opus"
+Sep 19 14:46 : exception: Failed to decode /Users/ragpt/Downloads/Music/Saathiya Tune Kya Kiya - Video Song ｜ Love ｜ Salman Khan,Revathi ｜ Ishtar Music.opus; Failed to open '/Users/ragpt/Downloads/Music/Saathiya Tune Kya Kiya - Video Song ｜ Love ｜ Salman Khan,Revathi ｜ Ishtar Music.opus': Operation not permitted
+Sep 19 14:46 : exception: Failed to open /Users/ragpt/Downloads/Music: Operation not permitted
+Sep 19 14:46 : exception: Failed to open /Users/ragpt/Downloads/Music: Operation not permitted
+Sep 19 14:46 : exception: Failed to decode /Users/ragpt/Downloads/Music/Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus; Failed to open '/Users/ragpt/Downloads/Music/Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus': Operation not permitted
+Sep 19 14:46 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Sep 19 14:46 : config: inotify: auto_update was disabled. enable during compilation phase
+Sep 19 14:51 : player: played "Saathiya Tune Kya Kiya - Video Song ｜ Love ｜ Salman Khan,Revathi ｜ Ishtar Music.opus"
+Sep 19 14:57 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Sep 21 11:26 : config: inotify: auto_update was disabled. enable during compilation phase
+Sep 21 11:27 : config: inotify: auto_update was disabled. enable during compilation phase
+Sep 23 11:05 : config: inotify: auto_update was disabled. enable during compilation phase
+Sep 26 09:06 : config: inotify: auto_update was disabled. enable during compilation phase
+Sep 27 13:07 : config: inotify: auto_update was disabled. enable during compilation phase
+Oct 03 07:44 : config: inotify: auto_update was disabled. enable during compilation phase
+Oct 03 07:50 : config: inotify: auto_update was disabled. enable during compilation phase
+Oct 03 15:11 : exception: Failed to open "CoreAudio" (osx); The operation couldn’t be completed. (OSStatus error 560947818.)
+Oct 03 15:11 : player: played "First Time Dekha - Bollywood 4K Romantic Song _ Jaan Tere Naam _ Ronit Roy _ Farheen _ Kumar Sanu.opus"
+Oct 03 15:11 : config: inotify: auto_update was disabled. enable during compilation phase
+Oct 03 15:16 : player: played "First Time Dekha - Bollywood 4K Romantic Song _ Jaan Tere Naam _ Ronit Roy _ Farheen _ Kumar Sanu.opus"
+Oct 03 15:21 : player: played "Mere Sapno Ki Rani 4K Song ： मेरे सपनो की रानी ｜ आराधना ｜ राजेश खन्ना - शर्मिला टैगोर - किशोर कुमार.opus"
+Oct 03 15:33 : player: played "Saathiya Tune Kya Kiya - Video Song ｜ Love ｜ Salman Khan,Revathi ｜ Ishtar Music.opus"
+Oct 03 15:38 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Oct 03 15:43 : player: played "First Time Dekha - Bollywood 4K Romantic Song _ Jaan Tere Naam _ Ronit Roy _ Farheen _ Kumar Sanu.opus"
+Oct 03 15:49 : player: played "Chal Akela Chal Akela with lyrics ｜ चल अकेला चल अकेला ｜ Mukesh ｜ Sambandh.opus"
+Oct 05 11:43 : config: inotify: auto_update was disabled. enable during compilation phase
+Oct 05 12:04 : config: inotify: auto_update was disabled. enable during compilation phase
+Oct 06 09:23 : config: inotify: auto_update was disabled. enable during compilation phase
+Oct 06 16:03 : config: inotify: auto_update was disabled. enable during compilation phase
+Oct 07 10:51 : config: inotify: auto_update was disabled. enable during compilation phase
+Oct 07 17:13 : config: inotify: auto_update was disabled. enable during compilation phase
+Oct 10 11:46 : config: inotify: auto_update was disabled. enable during compilation phase
+Oct 10 11:57 : player: played "Chhoti Chhoti Raatein (Full Song) Film - Tum Bin... Love Will Find A Way.opus"
+Oct 10 12:15 : player: played "Kaho Na Kaho   Murder 2004  HD    Full Song HD   Emraan Hashmi & Mallika Sherawat.opus"
+Oct 11 21:54 : player: played "Dheere Dheere Se Meri Zindagi Mein Aana Full Video Song _ Aashiqui _ Anu Agarwal, Rahul Roy.opus"
+Oct 11 22:11 : config: inotify: auto_update was disabled. enable during compilation phase
+Oct 12 09:14 : config: inotify: auto_update was disabled. enable during compilation phase
+Oct 13 09:59 : config: inotify: auto_update was disabled. enable during compilation phase
+Oct 13 10:07 : player: played "Chhoti Chhoti Raatein (Full Song) Film - Tum Bin... Love Will Find A Way.opus"
+Oct 13 10:11 : player: played "Kaho Na Kaho   Murder 2004  HD    Full Song HD   Emraan Hashmi & Mallika Sherawat.opus"
+Oct 13 10:16 : player: played "Dheere Dheere Se Meri Zindagi Mein Aana Full Video Song _ Aashiqui _ Anu Agarwal, Rahul Roy.opus"
+Oct 14 10:35 : config: inotify: auto_update was disabled. enable during compilation phase
+Oct 17 08:04 : config: inotify: auto_update was disabled. enable during compilation phase
+Oct 17 10:52 : config: inotify: auto_update was disabled. enable during compilation phase
+Oct 17 10:59 : player: played "Chal Akela Chal Akela with lyrics ｜ चल अकेला चल अकेला ｜ Mukesh ｜ Sambandh.opus"
+Oct 17 11:04 : player: played "Chhoti Chhoti Raatein (Full Song) Film - Tum Bin... Love Will Find A Way.opus"
+Oct 17 11:08 : player: played "Kaho Na Kaho   Murder 2004  HD    Full Song HD   Emraan Hashmi & Mallika Sherawat.opus"
+Oct 17 11:14 : player: played "Dheere Dheere Se Meri Zindagi Mein Aana Full Video Song _ Aashiqui _ Anu Agarwal, Rahul Roy.opus"
+Oct 18 12:11 : config: inotify: auto_update was disabled. enable during compilation phase
+Oct 19 09:25 : exception: Failed to open "CoreAudio" (osx); The operation couldn’t be completed. (OSStatus error 560947818.)
+Oct 19 09:25 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Oct 19 09:25 : config: inotify: auto_update was disabled. enable during compilation phase
+Oct 19 19:25 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Oct 20 10:05 : config: inotify: auto_update was disabled. enable during compilation phase
+Oct 20 20:41 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Oct 21 10:05 : config: inotify: auto_update was disabled. enable during compilation phase
+Oct 21 15:32 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Oct 26 18:29 : config: inotify: auto_update was disabled. enable during compilation phase
+Oct 26 19:23 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Oct 31 10:55 : config: inotify: auto_update was disabled. enable during compilation phase
+Oct 31 20:24 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Nov 02 09:54 : config: inotify: auto_update was disabled. enable during compilation phase
+Nov 02 20:00 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Nov 03 12:07 : config: inotify: auto_update was disabled. enable during compilation phase
+Nov 03 16:48 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Nov 07 11:24 : config: inotify: auto_update was disabled. enable during compilation phase
+Nov 08 19:11 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Nov 09 11:50 : config: inotify: auto_update was disabled. enable during compilation phase
+Nov 10 19:17 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Nov 14 11:31 : config: inotify: auto_update was disabled. enable during compilation phase
+Nov 14 11:38 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Nov 14 11:39 : config: inotify: auto_update was disabled. enable during compilation phase
+Nov 18 15:31 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Nov 20 13:11 : config: inotify: auto_update was disabled. enable during compilation phase
+Nov 20 13:17 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Nov 21 11:27 : config: inotify: auto_update was disabled. enable during compilation phase
+Nov 21 20:16 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Nov 22 10:43 : config: inotify: auto_update was disabled. enable during compilation phase
+Nov 28 12:25 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Nov 28 12:27 : config: inotify: auto_update was disabled. enable during compilation phase
+Nov 30 12:12 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Nov 30 12:13 : config: inotify: auto_update was disabled. enable during compilation phase
+Nov 30 20:10 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Dec 01 13:35 : config: inotify: auto_update was disabled. enable during compilation phase
+Dec 01 21:44 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Dec 05 12:17 : config: inotify: auto_update was disabled. enable during compilation phase
+Dec 09 16:44 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Dec 12 10:59 : config: inotify: auto_update was disabled. enable during compilation phase
+Dec 13 20:04 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Dec 14 12:57 : config: inotify: auto_update was disabled. enable during compilation phase
+Dec 18 11:52 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Dec 18 11:53 : config: inotify: auto_update was disabled. enable during compilation phase
+Dec 18 20:01 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Dec 19 12:30 : config: inotify: auto_update was disabled. enable during compilation phase
+Dec 21 00:22 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Dec 21 10:38 : config: inotify: auto_update was disabled. enable during compilation phase
+Dec 22 19:32 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Dec 22 20:11 : config: inotify: auto_update was disabled. enable during compilation phase
+Dec 27 21:28 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Dec 30 12:42 : config: inotify: auto_update was disabled. enable during compilation phase
+Jan 02 12:22 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Jan 02 12:45 : config: inotify: auto_update was disabled. enable during compilation phase
+Jan 07 23:44 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Jan 09 06:34 : config: inotify: auto_update was disabled. enable during compilation phase
+Jan 11 15:13 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Jan 12 10:56 : config: inotify: auto_update was disabled. enable during compilation phase
+Jan 12 11:46 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Jan 12 11:47 : config: inotify: auto_update was disabled. enable during compilation phase
+Jan 12 22:08 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Jan 13 07:57 : config: inotify: auto_update was disabled. enable during compilation phase
+Jan 13 19:50 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Jan 15 15:45 : config: inotify: auto_update was disabled. enable during compilation phase
+Jan 18 20:21 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Jan 19 12:25 : config: inotify: auto_update was disabled. enable during compilation phase
+Jan 20 21:32 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Jan 30 12:57 : config: inotify: auto_update was disabled. enable during compilation phase
+Feb 10 08:42 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Feb 10 10:20 : config: inotify: auto_update was disabled. enable during compilation phase
+Feb 14 07:03 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Feb 14 07:04 : config: inotify: auto_update was disabled. enable during compilation phase
+Feb 14 09:31 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Feb 14 09:32 : config: inotify: auto_update was disabled. enable during compilation phase
+Feb 17 06:57 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Feb 20 12:20 : config: inotify: auto_update was disabled. enable during compilation phase
+Feb 21 17:41 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Feb 21 17:46 : config: inotify: auto_update was disabled. enable during compilation phase
+Feb 23 12:17 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Feb 23 12:19 : config: inotify: auto_update was disabled. enable during compilation phase
+Feb 24 16:18 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Feb 26 10:41 : config: inotify: auto_update was disabled. enable during compilation phase
+Feb 27 12:51 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Feb 27 12:53 : config: inotify: auto_update was disabled. enable during compilation phase
+Feb 28 09:42 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Feb 28 09:44 : config: inotify: auto_update was disabled. enable during compilation phase
+Mar 01 12:53 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Mar 01 12:54 : config: inotify: auto_update was disabled. enable during compilation phase
+Mar 03 10:50 : player: played "Aisa Deewana Lyrical Video Song ｜ Dil Maange More ｜ Sonu Nigam ｜ Shahid Kapoor, Tulip Joshi.opus"
+Mar 03 10:51 : config: inotify: auto_update was disabled. enable during compilation phase
