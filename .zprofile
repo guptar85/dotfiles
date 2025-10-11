@@ -36,15 +36,20 @@ if [[ $- == *i* ]]; then
 fi
 
 # ----------------------------
-# Auto-start tmux (safe)
+# 🧠 Auto-start tmux (smarter + cwd aware)
 # ----------------------------
 if [[ "$(hostname)" == "Rahuls-MacBook-Air.local" ]]; then
   if command -v tmux &>/dev/null && [ -z "$TMUX" ] && [ -t 1 ]; then
-    tmux has-session -t main 2>/dev/null
-    if [ $? -eq 0 ]; then
-      exec tmux attach-session -t main
+    SESSION="main"
+    CURRENT_DIR="$(pwd)"
+
+    # Check if session exists
+    if tmux has-session -t "$SESSION" 2>/dev/null; then
+      # Attach to existing session, starting in current dir if detached
+      exec tmux attach-session -t "$SESSION"
     else
-      exec tmux new-session -s main
+      # Start a new session in the current working directory
+      exec tmux new-session -s "$SESSION" -c "$CURRENT_DIR"
     fi
   fi
 fi

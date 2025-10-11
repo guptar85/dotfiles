@@ -1,0 +1,7 @@
+git:
+  autoRefresh: true
+  parseEmoji: true
+  log:
+    showWholeGraph: true
+  skipHookPrefix: WIP
+  useParentGitDir: true
