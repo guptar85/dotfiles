@@ -1,3 +1,84 @@
-# Ignore nested plugin/theme repositories
-config/alacritty/themes/
+# ============================================================
+# 🌐 macOS & System Files
+# ============================================================
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+Thumbs.db
+.Spotlight-V100
+.Trashes
+
+# ============================================================
+# 🧰 Common build/runtime folders
+# ============================================================
+node_modules/
+dist/
+__pycache__/
+*.pyc
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.pid
+*.seed
+*.pid.lock
+
+# ============================================================
+# 🧩 Neovim & Editor
+# ============================================================
+config/nvim/.netrwhist
+config/nvim/undodir/
+config/nvim/backup/
+config/nvim/swap/
+config/nvim/plugin/
+config/nvim/plugged/
+config/nvim/lazy-lock.json
+config/nvim/lazy/
+config/nvim/.cache/
+config/nvim/Session.vim
+config/nvim/tmp/
+config/nvim/.luarc.json
+
+# Ignore all compiled Lua cache (from Lazy or runtime)
+**/__pycache__/
+**/.cache/
+**/.luarc.json
+**/.luarc.jsonc
+
+# ============================================================
+# 🪟 Tmux & Terminal
+# ============================================================
 config/tmux/plugins/
+config/tmux/plugins/tpm/
+config/tmux/plugins/tmux/
+config/alacritty/themes/
+
+# ============================================================
+# 🐚 Zsh / Shell
+# ============================================================
+.zcompdump*
+.zsh_sessions
+.zsh_history
+.zshrc.pre-oh-my-zsh
+.zshrc.save
+.history
+.local/share/zsh/
+
+# ============================================================
+# 🧱 Misc / Backup Files
+# ============================================================
+*.bak
+*.old
+*.tmp
+*.swp
+*.swo
+*.swx
+*~
+
+# ============================================================
+# 🧩 Dotsetup and Brew files
+# ============================================================
+setup/.brew-backup.log
+setup/tmp/
