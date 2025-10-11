@@ -1,0 +1,7 @@
+# ~/.config/fd/config
+
+--hidden                 # search hidden files
+--exclude .git           # but skip git dirs
+--follow                 # follow symlinks
+--color=always           # always show colors
+--ignore-case            # case-insensitive search

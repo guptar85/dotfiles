@@ -1,0 +1,8 @@
+# ~/.config/bat/config
+
+--theme="gruvbox-dark"       # or "Nord", "Dracula", "Catppuccin"
+--style="numbers,changes,header"
+--paging=auto                # only page if content > screen
+--wrap=never                 # don’t wrap long lines
+--tabs=4
+--italic-text=always

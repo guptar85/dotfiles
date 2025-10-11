@@ -1,0 +1,87 @@
+# ============================
+# Alacritty Config (MacOS + Ultrawide)
+# ============================
+
+[env]
+TERM = "xterm-256color"   # Better compatibility for SSH/remote
+
+[window]
+padding.x = 10
+padding.y = 10
+startup_mode = "Maximized"
+opacity = 0.80
+blur = true
+dynamic_padding = true
+option_as_alt = "Both"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[cursor]
+# Default fallback style (used when Neovim isn't controlling cursor)
+style = { shape = "Block", blinking = "On" }
+# When using Alacritty's vi mode (not Neovim) - also block
+vi_mode_style = { shape = "Block", blinking = "On" }
+
+# Blink behavior
+blink_interval = 500     # ms between blinks
+blink_timeout = 0        # 0 = never stop blinking
+unfocused_hollow = true  # show hollow cursor if Alacritty loses focus
+
+# [cursor]
+# style = { shape = "Block", blinking = "On" }
+# blink_interval = 500
+
+# [font]
+# normal      = { family = "FiraCode Nerd Font Mono", style = "Regular" }
+# bold        = { family = "FiraCode Nerd Font Mono", style = "Bold" }
+# italic      = { family = "FiraCode Nerd Font Mono", style = "Italic" }
+# bold_italic = { family = "FiraCode Nerd Font Mono", style = "Bold Italic" }
+# size = 16
+
+[font]
+# Using Iosevka Nerd Font Thin for a sleeker look
+normal      = { family = "Iosevka Nerd Font Mono", style = "Regular" }
+bold        = { family = "Iosevka Nerd Font Mono", style = "Bold" }
+italic      = { family = "Iosevka Nerd Font Mono", style = "Italic" }
+bold_italic = { family = "Iosevka Nerd Font Mono", style = "Bold Italic" }
+size = 18
+
+[selection]
+save_to_clipboard = true   # Auto-copy selections into macOS clipboard
+
+[keyboard]
+bindings = [
+  # New Alacritty window
+  { key = "N", mods = "Command", action = "SpawnNewInstance" },
+
+  # Tab navigation (hooked into tmux/neovim if needed)
+  { key = "H", mods = "Control|Alt|Command|Shift", chars = "\u0000p" }, # prev
+  { key = "L", mods = "Control|Alt|Command|Shift", chars = "\u0000n" }, # next
+
+  # Copy/Paste
+  { key = "Y", mods = "Command", action = "Copy" },
+  { key = "P", mods = "Command", action = "Paste" },
+
+  # Quit
+  { key = "Q", mods = "Command", action = "Quit" },
+
+  # Pane resizing passthrough (Ctrl + Shift + H/J/K/L)
+  { key = "H", mods = "Control|Shift", chars = "\u0000H" },
+  { key = "J", mods = "Control|Shift", chars = "\u0000J" },
+  { key = "K", mods = "Control|Shift", chars = "\u0000K" },
+  { key = "L", mods = "Control|Shift", chars = "\u0000L" },
+
+  # Alt key passthrough for tmux & Neovim
+  { key = "H", mods = "Alt", chars = "\u001bh" },
+  { key = "J", mods = "Alt", chars = "\u001bj" },
+  { key = "K", mods = "Alt", chars = "\u001bk" },
+  { key = "L", mods = "Alt", chars = "\u001bl" }
+]
+
+[general]
+live_config_reload = true
+# import = ["~/.config/alacritty/themes/themes/catppuccin_mocha.toml"]
+import = ["~/.config/alacritty/themes/themes/gruvbox_dark.toml"]
+# import = ["~/.config/alacritty/themes/themes/tokyo_night_storm.toml"]

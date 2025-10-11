@@ -1,0 +1,6 @@
+cpu: 8 # Plenty of cores for heavy workloads
+memory: 16 # Big RAM → run multiple containers/services
+disk: 80 # Bigger disk for images/volumes
+arch: aarch64 # Still ARM64, but can run x86 via emulation if needed
+runtime: docker
+vmType: vz

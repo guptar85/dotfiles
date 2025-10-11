@@ -1,0 +1,97 @@
+# ============================
+# Core settings
+# ============================
+[user]
+    name = Rahul Gupta
+    email = mail2guptar@gmail.com
+
+# ============================
+#  Core
+# ============================
+[core]
+    editor = nvim
+    autocrlf = input
+    pager = delta
+    excludesfile = ~/.config/git/ignore
+
+[init]
+    defaultBranch = main
+
+[color]
+    ui = auto
+
+# ============================
+#  Delta (Beautiful diffs)
+# ============================
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true          # n/p keys to move between hunks
+    side-by-side = true      # show diffs in two columns
+    line-numbers = true
+    syntax-theme = gruvbox-dark
+    decorations = true
+    hyperlinks = true
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box
+    file-style = bold cyan
+    file-decoration-style = none
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = bold cyan
+
+# ============================
+#  Aliases
+# ============================
+[alias]
+    st = status -sb
+    co = checkout
+    br = branch
+    ci = commit
+    amend = commit --amend --no-edit
+    d = diff
+    ds = diff --staged
+    lg = log --oneline --graph --decorate
+    last = log -1 HEAD
+    unstage = reset HEAD --
+    ca = commit -a
+    graph = log --graph --oneline --all --decorate
+
+# ============================
+#  Push / Pull
+# ============================
+[push]
+    default = current
+
+[pull]
+    rebase = true
+
+[merge]
+    conflictstyle = diff3
+    tool = nvimdiff
+
+[diff]
+  tool = nvimdiff
+
+# ============================
+# Credential cache
+# ============================
+[credential]
+    helper = osxkeychain
+
+# ============================
+# Work vs Personal identities
+# ============================
+# This will apply a different email if you're inside ~/work
+[includeIf "gitdir:~/work/"]
+    path = ~/.config/git/work
+
+[includeIf "gitdir:~/personal/"]
+    path = ~/.config/git/personal

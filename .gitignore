@@ -1,0 +1,3 @@
+# Ignore nested plugin/theme repositories
+config/alacritty/themes/
+config/tmux/plugins/

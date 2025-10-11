@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+# Smart Telekasten Launcher (tmux-aware toggle + Alacritty)
+# ✅ Toggles between existing notes window or opens new one
+# ✅ Works inside or outside tmux
+# ✅ Minimal notifications, no duplicates
+
+set -euo pipefail
+
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+
+NOTE_TITLE="${1:-}"
+ALACRITTY_BIN=$(command -v alacritty)
+SESSION="main"
+WINDOW_NAME="notes"
+
+# ----------------------------
+# Notification Helper
+# ----------------------------
+notify() {
+  if command -v terminal-notifier &>/dev/null; then
+    terminal-notifier \
+      -title "Telekasten 🗒️" \
+      -message "$1" \
+      -sound "Ping" \
+      >/dev/null 2>&1 || true
+  fi
+}
+
+# ----------------------------
+# Helper: Check if tmux window exists
+# ----------------------------
+tmux_window_exists() {
+  tmux list-windows -t "$SESSION" 2>/dev/null | grep -q "$WINDOW_NAME"
+}
+
+# ----------------------------
+# Inside tmux → reuse or open
+# ----------------------------
+if [[ -n "${TMUX:-}" ]]; then
+  if tmux_window_exists; then
+    tmux select-window -t "$SESSION:$WINDOW_NAME"
+    notify "Focused Telekasten window"
+  else
+    notify "Opening new Telekasten window"
+    if [[ -z "$NOTE_TITLE" ]]; then
+      tmux new-window -n "$WINDOW_NAME" "nvim '+lua require(\"telekasten\").panel()'"
+    else
+      tmux new-window -n "$WINDOW_NAME" "nvim '+lua require(\"telekasten\").new_note({ title = \"$NOTE_TITLE\" })'"
+    fi
+  fi
+  exit 0
+fi
+
+# ----------------------------
+# Outside tmux → launch via Alacritty
+# ----------------------------
+if tmux has-session -t "$SESSION" 2>/dev/null; then
+  # Session exists → focus or open window
+  if tmux_window_exists; then
+    notify "Focusing Telekasten in existing session"
+    "$ALACRITTY_BIN" -e tmux attach-session -t "$SESSION" \; select-window -t "$WINDOW_NAME"
+  else
+    notify "Opening Telekasten in tmux"
+    if [[ -z "$NOTE_TITLE" ]]; then
+      "$ALACRITTY_BIN" -e tmux new-window -t "$SESSION" -n "$WINDOW_NAME" "nvim '+lua require(\"telekasten\").panel()'"
+    else
+      "$ALACRITTY_BIN" -e tmux new-window -t "$SESSION" -n "$WINDOW_NAME" "nvim '+lua require(\"telekasten\").new_note({ title = \"$NOTE_TITLE\" })'"
+    fi
+  fi
+else
+  # No session → create everything
+  notify "Starting tmux + Telekasten"
+  if [[ -z "$NOTE_TITLE" ]]; then
+    "$ALACRITTY_BIN" -e tmux new-session -s "$SESSION" -n "$WINDOW_NAME" "nvim '+lua require(\"telekasten\").panel()'"
+  else
+    "$ALACRITTY_BIN" -e tmux new-session -s "$SESSION" -n "$WINDOW_NAME" "nvim '+lua require(\"telekasten\").new_note({ title = \"$NOTE_TITLE\" })'"
+  fi
+fi

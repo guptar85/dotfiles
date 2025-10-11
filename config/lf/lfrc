@@ -1,0 +1,177 @@
+# ============================
+#  Options
+# ============================
+set shellopts '-eu'
+set ifs "\n"
+set scrolloff 10
+set icons true
+set period true
+set drawbox true
+set preview true
+set ratios 1:2:3
+set hidden false
+set info "size:time:clipboard"
+
+# ============================
+#  Clipboard Status
+# ============================
+cmd clipboard_status ${{
+    if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/lf/copy_or_cut" ]; then
+        mode=$(cat "${XDG_CONFIG_HOME:-$HOME/.config}/lf/copy_or_cut")
+        if [ "$mode" = "copy" ]; then
+            echo "📋 COPY"
+        elif [ "$mode" = "cut" ]; then
+            echo "✂️ CUT"
+        fi
+    fi
+}}
+set infocmds "clipboard=clipboard_status"
+
+# ============================
+#  Key Bindings
+# ============================
+# --- Navigation ---
+map gh cd ~
+map <c-f> $lf -remote "send $id select \"$(fzf --reverse)\""
+map . set hidden!
+
+# --- File Selection & Clipboard ---
+map <space> toggle
+map y yank
+map x cut
+map p paste
+map D delete
+map <c-y> clear_clipboard # NEW: Clear the clipboard
+
+# --- File Operations (with fzf) ---
+map C copyto
+map M moveto
+map <c-n> mkdir
+
+# --- File Execution / Opening ---
+map <enter> &open
+map o &open
+
+# ============================
+#  Custom Commands
+# ============================
+
+cmd open ${{
+    test -L "$f" && f="$(readlink -f "$f")"
+    mime=$(file --mime-type -b "$f")
+
+    case "$mime" in
+        text/*|application/json|application/xml|inode/x-empty)
+            nvim "$f";;
+        audio/*)
+            mpv --audio-display=no "$f";;
+        image/*)
+            open "$f" >/dev/null 2>&1;;
+        video/*)
+            mpv "$f";;
+        application/pdf|application/epub*)
+            open -a /Applications/MuPDF.app "$f" >/dev/null 2>&1 &;;
+        application/vnd.openxmlformats-officedocument.wordprocessingml.document|application/vnd.oasis.opendocument.text)
+            open "$f" >/dev/null 2>&1;;
+        application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|application/vnd.oasis.opendocument.spreadsheet)
+            open "$f" >/dev/null 2>&1;;
+        application/vnd.openxmlformats-officedocument.presentationml.presentation|application/vnd.oasis.opendocument.presentation)
+            open "$f" >/dev/null 2>&1;;
+        *)
+            # fallback → open in Neovim (safer than Finder for unknowns)
+            nvim "$f";;
+    esac
+}}
+
+# 'yank' (Copy)
+cmd yank ${{
+    mkdir -p "${XDG_CONFIG_HOME:-$HOME/.config}/lf"
+    echo "$fx" > "${XDG_CONFIG_HOME:-$HOME/.config}/lf/files"
+    echo "copy" > "${XDG_CONFIG_HOME:-$HOME/.config}/lf/copy_or_cut"
+    osascript -e 'display notification "📋 Files copied to clipboard" with title "LF"'
+}}
+
+# 'cut'
+cmd cut ${{
+    mkdir -p "${XDG_CONFIG_HOME:-$HOME/.config}/lf"
+    echo "$fx" > "${XDG_CONFIG_HOME:-$HOME/.config}/lf/files"
+    echo "cut" > "${XDG_CONFIG_HOME:-$HOME/.config}/lf/copy_or_cut"
+    osascript -e 'display notification "✂️ Files cut to clipboard" with title "LF"'
+}}
+
+cmd paste ${{
+    files="${XDG_CONFIG_HOME:-$HOME/.config}/lf/files"
+    op_file="${XDG_CONFIG_HOME:-$HOME/.config}/lf/copy_or_cut"
+
+    if [ -f "$op_file" ] && [ -f "$files" ]; then
+        operation=$(cat "$op_file")
+        if [ "$operation" = "copy" ]; then
+            xargs -I {} cp -ivr {} . < "$files" && \
+            osascript -e 'display notification "✅ Files Pasted" with title "LF" sound name "Ping"'
+        elif [ "$operation" = "cut" ]; then
+            xargs -I {} mv -iv {} . < "$files" && \
+            rm "$op_file" && \
+            osascript -e 'display notification "✅ Files Moved" with title "LF" sound name "Ping"'
+        fi
+    else
+        osascript -e 'display notification "❗ Clipboard is empty" with title "LF" sound name "Basso"'
+    fi
+}}
+
+# NEW: 'clear_clipboard' command
+cmd clear_clipboard ${{
+    rm -f "${XDG_CONFIG_HOME:-$HOME/.config}/lf/files" "${XDG_CONFIG_HOME:-$HOME/.config}/lf/copy_or_cut"
+    osascript -e 'display notification "✨ Clipboard cleared" with title "LF"'
+}}
+
+# 'delete' command
+cmd delete ${{
+    printf "Move to trash: %s? [y/N] " "$fx"
+    read ans
+    if [ "$ans" = "y" ]; then
+        trash-put -- $fx && osascript -e 'display notification "🗑️ Moved to Trash" with title "LF" sound name "Basso"'
+    fi
+}}
+
+# 'extract' command
+cmd extract ${{
+    set -f
+    case "$f" in
+        *.tar.bz2|*.tbz2) tar xjvf "$f";;
+        *.tar.gz|*.tgz)   tar xzvf "$f";;
+        *.tar.xz|*.txz)   tar xJvf "$f";;
+        *.zip)            unzip "$f";;
+        *.rar)            unrar x "$f";;
+        *.7z)             7z x "$f";;
+    esac
+}}
+
+# 'archive' command
+cmd archive ${{
+    printf "Archive name (e.g., my_files.tar.gz): "
+    read name
+    tar -cvzf "$name" $fx &&
+    osascript -e "display notification \"📦 Archive created: $name\" with title \"LF\" sound name \"Ping\""
+}}
+
+# 'moveto' with fzf
+cmd moveto ${{
+    dest="$(find -L ~ -path '*/\.*' -prune -o -type d -print 2>/dev/null | fzf --prompt="Move to: " --preview='ls -p {}')" &&
+    mv -iv $fx "$dest" &&
+    osascript -e "display notification \"🚚 File(s) moved to $dest\" with title \"LF\" sound name \"Ping\""
+}}
+
+# 'copyto' with fzf
+cmd copyto ${{
+    dest="$(find -L ~ -path '*/\.*' -prune -o -type d -print 2>/dev/null | fzf --prompt="Copy to: " --preview='ls -p {}')" &&
+    cp -ivr $fx "$dest" &&
+    osascript -e "display notification \"📋 File(s) copied to $dest\" with title \"LF\" sound name \"Ping\""
+}}
+
+# Simple 'mkdir'
+cmd mkdir ${{
+    printf "Directory name: "
+    read name
+    mkdir -p -- "$name" &&
+    osascript -e "display notification \"📁 Folder created: $name\" with title \"LF\" sound name \"Ping\""
+}}

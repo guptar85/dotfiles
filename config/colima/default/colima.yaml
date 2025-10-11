@@ -1,0 +1,6 @@
+cpu: 4 # Half your cores → good balance
+memory: 6 # Leave enough RAM for macOS apps
+disk: 40 # Avoid filling up SSD, 40GB is safe
+arch: aarch64 # Native ARM64 for Apple Silicon
+runtime: docker # Use Docker engine (works with docker CLI)
+vmType: vz # Faster, native virtualization
