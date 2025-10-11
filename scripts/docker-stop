@@ -1,7 +1,0 @@
-#!/usr/bin/env zsh
-
-#Stop minikube
-minikube stop
-
-#Stop podman
-podman machine stop

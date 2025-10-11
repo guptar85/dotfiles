@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# ==========================================================
+# 🚀 Post-Install Setup Script
+# ==========================================================
+divider() { echo "----------------------------------------------------------"; }
+
+echo "🧠 Starting post-install configuration..."
+divider
+
+# ----------------------------------------------------------
+# Zsh plugins
+# ----------------------------------------------------------
+ZSH_PLUGINS_DIR="$HOME/.config/zsh/plugins"
+mkdir -p "$ZSH_PLUGINS_DIR"
+
+install_plugin() {
+	local repo="$1"
+	local dest="$2"
+	if [ ! -d "$dest" ]; then
+		git clone "$repo" "$dest"
+		echo "✅ Installed $(basename "$dest")"
+	else
+		echo "✔️  $(basename "$dest") already exists."
+	fi
+}
+
+install_plugin https://github.com/zsh-users/zsh-autosuggestions "$ZSH_PLUGINS_DIR/zsh-autosuggestions"
+install_plugin https://github.com/zsh-users/zsh-syntax-highlighting "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting"
+
+divider
+
+# ----------------------------------------------------------
+# Neovim Lazy Plugin Manager
+# ----------------------------------------------------------
+if [ ! -d "$HOME/.local/share/nvim/lazy/Lazy.nvim" ]; then
+	echo "💡 Installing Lazy.nvim plugin manager..."
+	git clone https://github.com/folke/lazy.nvim.git ~/.local/share/nvim/lazy/Lazy.nvim
+else
+	echo "✅ Lazy.nvim already present."
+fi
+
+echo "🔄 Syncing Neovim plugins..."
+nvim --headless "+Lazy! sync" +qa || echo "⚠️ Neovim sync failed (check config)."
+
+divider
+
+# ----------------------------------------------------------
+# Tmux Plugin Manager (TPM)
+# ----------------------------------------------------------
+if [ ! -d "$HOME/.config/tmux/plugins/tpm" ]; then
+	echo "💡 Installing TPM (Tmux Plugin Manager)..."
+	git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+else
+	echo "✅ TPM already installed."
+fi
+
+echo "🔄 Installing Tmux plugins..."
+~/.config/tmux/plugins/tpm/bin/install_plugins || echo "⚠️ TPM install failed."
+
+divider
+
+# ----------------------------------------------------------
+# Final Validation
+# ----------------------------------------------------------
+echo "🧩 Verifying key CLI tools..."
+for tool in git fzf zoxide lazygit lf bat eza ripgrep; do
+	if command -v "$tool" >/dev/null 2>&1; then
+		echo "✅ $tool installed"
+	else
+		echo "❌ $tool missing"
+	fi
+done
+
+divider
+echo "🎯 Post-install complete!"

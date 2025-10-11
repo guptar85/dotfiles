@@ -1,2 +1,0 @@
-#!/usr/bin/env zsh
-#cut -c 1-$(tput cols)

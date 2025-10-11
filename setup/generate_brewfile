@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Location of your dotfiles repo
+DOTFILES_DIR="$HOME/dotfiles"
+BREWFILE="$DOTFILES_DIR/Brewfile"
+
+echo "🍺 Generating Brewfile..."
+echo "# ======================================================" > "$BREWFILE"
+echo "# Homebrew Bundle Brewfile" >> "$BREWFILE"
+echo "# Auto-generated on $(date '+%Y-%m-%d %H:%M:%S')" >> "$BREWFILE"
+echo "# ======================================================" >> "$BREWFILE"
+echo "" >> "$BREWFILE"
+
+# ===========================
+# CLI Packages
+# ===========================
+echo "📦 Exporting CLI packages..."
+echo "# 🧰 Command-Line Tools" >> "$BREWFILE"
+brew leaves | sort | while read -r pkg; do
+  echo "brew \"$pkg\"" >> "$BREWFILE"
+done
+echo "" >> "$BREWFILE"
+
+# ===========================
+# Cask (GUI) Apps
+# ===========================
+echo "🧩 Exporting Cask apps..."
+echo "# 🖥️ GUI Applications" >> "$BREWFILE"
+brew list --cask | sort | while read -r cask; do
+  echo "cask \"$cask\"" >> "$BREWFILE"
+done
+echo "" >> "$BREWFILE"
+
+# ===========================
+# Cleanup / Tap Info
+# ===========================
+echo "🔗 Adding Homebrew taps..."
+echo "# 🍻 Taps (extra repositories)" >> "$BREWFILE"
+brew tap | sort | while read -r tap; do
+  echo "tap \"$tap\"" >> "$BREWFILE"
+done
+echo "" >> "$BREWFILE"
+
+echo "✅ Brewfile generated at: $BREWFILE"

@@ -1,7 +1,0 @@
-#!/usr/bin/env zsh
-
-while read -r file; do
-    if [[ "$(file --mime-type "$(stat -f $file)" -b)" == image/* ]]; then
-        mv $file "$HOME/Pictures" > /dev/null 2>&1
-    fi
-done <<< "$(find "$HOME/Downloads/Brave-Downloads" -type f)"

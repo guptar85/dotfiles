@@ -1,0 +1,108 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# ==========================================================
+# 🔗 Dotfiles Symlink Setup (Interactive + Safe)
+# ==========================================================
+
+DOTFILES_DIR="$HOME/dotfiles"
+CONFIG_DIR="$DOTFILES_DIR/config"
+TARGET_DIR="$HOME/.config"
+
+echo "🔗 Setting up symbolic links from dotfiles → ~/.config"
+echo "===================================================="
+
+# Ask user for mode selection interactively (always show)
+if [ -t 0 ]; then
+  echo ""
+  echo "Select mode:"
+  echo "1) 🧪 Dry Run (preview only)"
+  echo "2) ⚙️ Actual Run (create symlinks)"
+  echo "3) 🚫 Exit (no action)"
+  echo ""
+  read -r -p "Enter your choice [1/2/3]: " choice
+else
+  # Fallback: default to dry-run when not interactive (e.g. piping)
+  choice="1"
+fi
+
+case "$choice" in
+1)
+  MODE="dry-run"
+  echo "🧪 Running in dry-run mode (no changes will be made)."
+  ;;
+2)
+  MODE="run"
+  echo "⚙️ Running in actual mode (changes will be applied)."
+  ;;
+3)
+  echo "🚫 No action taken. Exiting."
+  exit 0
+  ;;
+*)
+  echo "❌ Invalid choice. Exiting."
+  exit 1
+  ;;
+esac
+
+# Ensure ~/.config exists
+if [ ! -d "$TARGET_DIR" ]; then
+  echo "📁 Creating $TARGET_DIR ..."
+  [ "$MODE" = "run" ] && mkdir -p "$TARGET_DIR"
+fi
+
+# Function: create a safe symlink
+create_symlink() {
+  local src="$1"
+  local dest="$2"
+
+  if [ "$MODE" = "dry-run" ]; then
+    if [ -L "$dest" ]; then
+      echo "🟡 Would update symlink: $dest → $src"
+    elif [ -e "$dest" ]; then
+      echo "🟡 Would back up existing: $dest → ${dest}.backup"
+    else
+      echo "🟢 Would create new symlink: $dest → $src"
+    fi
+    return
+  fi
+
+  if [ -L "$dest" ]; then
+    echo "⚙️  Updating existing symlink: $dest"
+    ln -sf "$src" "$dest"
+  elif [ -e "$dest" ]; then
+    echo "📦 Backing up existing: $dest → ${dest}.backup"
+    mv "$dest" "${dest}.backup"
+    ln -s "$src" "$dest"
+    echo "✅ Linked $dest → $src"
+  else
+    ln -s "$src" "$dest"
+    echo "✅ Linked $dest → $src"
+  fi
+}
+
+# Loop through config directories
+for dir in "$CONFIG_DIR"/*; do
+  [ -d "$dir" ] || continue
+  name=$(basename "$dir")
+  src="$dir"
+  dest="$TARGET_DIR/$name"
+  create_symlink "$src" "$dest"
+done
+
+# Link top-level dotfiles
+echo ""
+echo "🔗 Linking shell and top-level configs..."
+for file in ".zshrc" ".p10k.zsh" ".zprofile"; do
+  if [ -f "$DOTFILES_DIR/$file" ]; then
+    create_symlink "$DOTFILES_DIR/$file" "$HOME/$file"
+  fi
+done
+
+echo ""
+if [ "$MODE" = "dry-run" ]; then
+  echo "🧪 Dry-run complete — no files were modified."
+else
+  echo "✅ All symbolic links created successfully!"
+  echo "💡 You can now restart your terminal to apply changes."
+fi

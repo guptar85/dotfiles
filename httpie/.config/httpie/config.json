@@ -1,5 +1,0 @@
-{
-    "default_options": [
-        "--verify=/Users/ragpt/Documents/ZScaler-Certificates/ZscalerRootCertificate-2048-SHA256.pem"
-    ]
-}

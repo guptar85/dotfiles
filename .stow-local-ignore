@@ -1,9 +1,0 @@
-\.git
-\.gitignore
-\scripts
-\zshrc.d
-\ssh
-
-^/DS_Store
-^/README.*
-^/LICENSE.*

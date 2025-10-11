@@ -1,7 +1,0 @@
-[init]
-	defaultBranch = main
-[user]
-	email = mail2guptar@gmail.com
-	name = Rahul Gupta
-[credential]
-	helper = osxkeychain
