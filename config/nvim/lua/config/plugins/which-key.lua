@@ -100,7 +100,7 @@ return {
         desc = "Live grep (cwd)",
       },
       { "<leader>fb", builtin.buffers,   desc = "Find buffers" },
-      { "<leader>fh", builtin.help_tags, desc = "Find help" },
+      { "jleader>fh", builtin.help_tags, desc = "Find help" },
       {
         "<leader>fe",
         function()
@@ -112,7 +112,7 @@ return {
         desc = "File browser",
       },
       -- Keymap for recent files
-      { "leader>fr", builtin.oldfiles, desc = "Find recent files" },
+      { "<leader>fr", builtin.oldfiles, desc = "Find recent files" },
       -- 🔍 NEW: Fuzzy search inside current file
       {
         "<leader>/",

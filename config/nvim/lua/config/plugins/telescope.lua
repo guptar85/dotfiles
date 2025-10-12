@@ -45,7 +45,7 @@ return {
       pickers = {
         oldfiles = {
           prompt_title = "📂 Recent Files",
-          only_cwd = true, -- show only files from current project
+          only_cwd = false, -- show across all directories
           theme = "dropdown",
           previewer = false,
           layout_config = {

@@ -57,32 +57,9 @@ export PATH="$DOTFILES/scripts:$PATH"
 export PATH="/opt/homebrew/opt/trash-cli/bin:$PATH"
 export COLIMA_HOME="$HOME/.config/colima"
 
-# ----------------------------
-# Vi Mode Cursor Shape
-# ----------------------------
-# Changes cursor shape to block in normal mode and a pipe in insert mode.
-# This requires a terminal that supports DECSCUSR, like Alacritty.
-
-VI_MODE_CURSOR_BLOCK='\e[2 q'
-VI_MODE_CURSOR_BEAM='\e[6 q'
-
-function zle-keymap-select {
-  case $KEYMAP in
-    vicmd)
-      # Normal mode
-      echo -ne $VI_MODE_CURSOR_BLOCK
-      ;;
-    viins|main)
-      # Insert mode (or default mode)
-      echo -ne $VI_MODE_CURSOR_BEAM
-      ;;
-  esac
-}
-
-function zle-line-init {
-  # Set the initial cursor to a vertical bar
-  echo -ne $VI_MODE_CURSOR_BEAM
-}
+for rcfile in "$DOTFILES"/zshrc.d/*.sh; do
+  source "$rcfile"
+done
 
 # Register the functions as ZLE widgets
 zle -N zle-keymap-select
@@ -94,8 +71,8 @@ echo -ne $VI_MODE_CURSOR_BEAM
 # Use 'jj' to escape from insert mode to normal mode
 bindkey -M viins 'jk' vi-cmd-mode
 
-for rcfile in "$DOTFILES"/zshrc.d/*.sh; do
-  source "$rcfile"
-done
+# Register the widget
+zle -N edit_command_in_tmux_popup
 
-
+# Keybinding (use Ctrl-v)
+bindkey '^V' edit_command_in_tmux_popup
