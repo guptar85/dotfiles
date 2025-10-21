@@ -1,55 +1,60 @@
-#!/usr/bin/env bash # raindrop - Add a bookmark to Raindrop.io via API
-# Works cleanly when triggered via macOS Shortcuts + Hyperkey
+#!/bin/bash
+# ----------------------------------------
+# Raindrop Bookmark Script (macOS Shortcut Safe)
+# ----------------------------------------
+# Supports: direct URL args OR clipboard fallback
+# Logs to /tmp (auto-cleaned by macOS)
+# ----------------------------------------
 
 set -euo pipefail
 
-# 🔑 Get API token securely from macOS Keychain
-RAINDROP_TOKEN=$(security find-generic-password -a "$USER" -s "raindrop_token" -w 2>/dev/null || true)
+# 🔐 Raindrop API token
+RAINDROP_TOKEN="ab0ef098-8f2a-4d54-87a4-033ff29614a1"
 
-if [[ -z "$RAINDROP_TOKEN" ]]; then
-  notify "No Raindrop token found in Keychain. Run setup first." "Raindrop ⚠️" "Basso"
-  exit 1
-fi
-
-# Function for clean macOS notifications
+# ----------------------------------------
+# Helper: macOS notification
+# ----------------------------------------
 notify() {
   local msg="$1"
   local title="${2:-Raindrop}"
-  local sound="${3:-Ping}"
-  terminal-notifier -title "$title" -message "$msg" -sound "$sound" >/dev/null 2>&1 || true
+  local sound="${3:-}"
+  if command -v terminal-notifier &>/dev/null; then
+    if [[ -n "$sound" ]]; then
+      terminal-notifier -title "$title" -message "$msg" -sound "$sound" >/dev/null 2>&1
+    else
+      terminal-notifier -title "$title" -message "$msg" >/dev/null 2>&1
+    fi
+  fi
 }
 
-# Step 1: Get URL (from argument or clipboard)
+# ----------------------------------------
+# Inputs
+# ----------------------------------------
 ARG1="${1:-}"
 ARG2="${2:-Quick Add}"
-ARG3="${3:-cli}"
+ARG3="${3:-script}"
 
-if [[ "$ARG1" =~ ^https?:// ]]; then
+# ----------------------------------------
+# Extract URL from clipboard if not provided
+# ----------------------------------------
+extract_url_from_clipboard() {
+  pbpaste | grep -Eo 'https?://[^[:space:]]+' | sed 's/[.,;:!?]$//' | head -n 1
+}
+
+if [[ -n "$ARG1" && "$ARG1" =~ ^https?:// ]]; then
   URL="$ARG1"
 else
-  CLIP=$(pbpaste || true)
-  if [[ "$CLIP" =~ ^https?:// ]]; then
-    URL="$CLIP"
-  else
-    # Fallback: ask for URL only if no valid one in clipboard
-    URL=$(
-      osascript <<'EOF' 2>/dev/null || echo ""
-      tell application "System Events"
-        display dialog "Enter a URL to bookmark:" default answer "" with title "Raindrop" buttons {"Cancel", "OK"} default button "OK"
-        text returned of result
-      end tell
-EOF
-    )
-  fi
+  URL=$(extract_url_from_clipboard)
 fi
 
-# Step 2: Validate URL
-if [[ -z "${URL:-}" || ! "$URL" =~ ^https?:// ]]; then
-  notify "No valid URL found to bookmark." "Raindrop ❌" "Basso"
+if [[ -z "$URL" ]]; then
+  notify "📋 No valid URL found to bookmark." "Raindrop ❌" Basso
   exit 0
 fi
 
-# Step 3: Send API request
+# ----------------------------------------
+# Send to Raindrop API
+# ----------------------------------------
 response=$(curl -s -X POST "https://api.raindrop.io/rest/v1/raindrop" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $RAINDROP_TOKEN" \
@@ -59,9 +64,21 @@ response=$(curl -s -X POST "https://api.raindrop.io/rest/v1/raindrop" \
     \"tags\": [\"$ARG3\"]
   }")
 
-# Step 4: Notify user
-if echo "$response" | jq -e '.item.id // empty' >/dev/null 2>&1; then
-  notify "Bookmarked successfully!" "Raindrop ✅" "Ping"
+# ----------------------------------------
+# Validate success using real API field
+# ----------------------------------------
+if echo "$response" | jq -e '._id // .item._id // empty' >/dev/null; then
+  notify "✅ Bookmark added successfully!" "Raindrop"
 else
-  notify "Failed to add bookmark." "Raindrop ❌" "Basso"
+  notify "❌ Failed to add bookmark." "Raindrop" Basso
 fi
+
+# ----------------------------------------
+# Log to macOS /tmp (auto-cleaned)
+# ----------------------------------------
+LOG_FILE="/tmp/raindrop_$(whoami).log"
+{
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] $URL | Title: $ARG2 | Tag: $ARG3"
+} >>"$LOG_FILE" 2>/dev/null || true
+
+exit 0

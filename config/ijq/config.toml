@@ -1,0 +1,81 @@
+# ========================================
+# Rahul's Default ijq Configuration
+# ========================================
+
+# UI and behavior settings
+[ui]
+# Always start with tree view expanded
+expand_all = false
+
+# Use minimal borders for better tmux compatibility
+borders = "none"
+
+# Automatically pretty-print JSON output
+pretty_print = true
+
+# Use line numbers for orientation
+show_line_numbers = false
+
+# Theme: "dark", "light", or "auto"
+theme = "dark"
+
+# Wrap long lines (better for narrow tmux splits)
+wrap = true
+
+# Enable syntax highlighting (always good)
+colorize = true
+
+
+# ========================================
+# Keybindings (Vim-style)
+# ========================================
+
+[keybindings]
+# Movement
+up = "k"
+down = "j"
+left = "h"
+right = "l"
+
+# Page navigation
+page_up = "Ctrl+u"
+page_down = "Ctrl+d"
+
+# Jump to top / bottom
+home = "g g"
+end = "Shift+g"
+
+# Search
+search = "/"
+search_next = "n"
+search_prev = "N"
+
+# Filtering (interactive jq query)
+filter = ":"
+clear_filter = "Ctrl+l"
+
+# Expand / collapse nodes
+expand = "Enter"
+collapse = "Backspace"
+expand_all = "Shift+Enter"
+collapse_all = "Shift+Backspace"
+
+# Quit
+quit = "q"
+force_quit = "Ctrl+c"
+
+# Help
+help = "?"
+
+# ========================================
+# jq Behavior
+# ========================================
+[jq]
+# Highlight jq syntax
+highlight = true
+
+# Pretty-print jq output
+pretty = true
+
+# Allow interactive query editing
+interactive = true

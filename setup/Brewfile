@@ -25,6 +25,8 @@ brew "terminal-notifier"
 brew "tmux"
 brew "trash-cli"
 brew "zoxide"
+brew "ijq"
+brew "hurl"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 
