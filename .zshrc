@@ -85,3 +85,8 @@ if [ -f '/Users/rahul/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# Load local secrets if the file exists
+if [ -f ~/.secrets.sh ]; then
+    source ~/.secrets.sh
+fi

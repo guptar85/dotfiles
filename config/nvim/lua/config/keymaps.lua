@@ -1,6 +1,5 @@
 -- ============================
--- Basic Keymaps (no <leader>)
--- ============================
+-- Basic Keymaps (no <leader>) ============================
 
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
@@ -60,3 +59,6 @@ map("n", "<leader>ri", function()
     vim.cmd(string.format("%%s/%s/%s/gi", search, replace))
   end
 end, { desc = "Replace (ignore case)" })
+
+-- Toggle AI Provider Menu
+vim.keymap.set("n", "<leader>as", "<cmd>AvanteSwitchProvider<cr>", { desc = "Switch AI Provider" })

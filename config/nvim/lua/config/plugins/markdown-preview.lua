@@ -1,6 +1,8 @@
 return {
   "iamcco/markdown-preview.nvim",
-  build = "cd app && npm install", -- auto-install dependencies
+  -- build = "cd app && npm install", -- auto-install dependencies
+  -- Change your build line to this:
+  build = "cd app && npm install && git restore .",
   ft = { "markdown", "telekasten" },
   cmd = { "MarkdownPreview", "MarkdownPreviewStop", "MarkdownPreviewToggle" },
   init = function()
