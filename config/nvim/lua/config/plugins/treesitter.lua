@@ -7,6 +7,10 @@ return {
   },
   config = function()
     require("nvim-treesitter.configs").setup({
+      ensure_installed = {
+        "javascript", "typescript", "lua", "bash", "markdown", "markdown_inline",
+        "python", "mermaid"
+      },
       -- Core features
       highlight = { enable = true },
       indent = { enable = true },

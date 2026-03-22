@@ -40,6 +40,8 @@ config/nvim/.cache/
 config/nvim/Session.vim
 config/nvim/tmp/
 config/nvim/.luarc.json
+config/nvim/after/
+.nvimlog
 
 # Ignore all compiled Lua cache (from Lazy or runtime)
 **/__pycache__/

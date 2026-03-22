@@ -29,3 +29,18 @@ autocmd("VimEnter", {
     end
   end,
 })
+
+-- Identify Structurizr DSL files
+autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = "*.dsl",
+  callback = function()
+    vim.bo.filetype = "structurizr"
+    vim.bo.commentstring = "// %s"
+  end,
+})
+-- Create a shortcut to compile Structurizr DSL to Mermaid
+vim.api.nvim_create_user_command("StructurizrExport", function()
+  local file = vim.fn.expand("%:p")
+  vim.cmd("!structurizr-cli export -w " .. file .. " -format mermaid")
+  print("Exported Structurizr to Mermaid!")
+end, {})
