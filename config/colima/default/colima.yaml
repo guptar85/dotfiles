@@ -1,16 +1,16 @@
 # Number of CPUs to be allocated to the virtual machine.
 # Default: 2
-cpu: 4
+cpu: 2
 
 # Size of the disk in GiB to be allocated to the virtual machine for container data.
 # NOTE: value can only be increased after virtual machine has been created.
 #
 # Default: 100
-disk: 40
+disk: 100
 
 # Size of the memory in GiB to be allocated to the virtual machine.
 # Default: 2
-memory: 6
+memory: 2
 
 # Architecture of the virtual machine (x86_64, aarch64, host).
 #
@@ -23,6 +23,14 @@ arch: aarch64
 # NOTE: value cannot be changed after virtual machine is created.
 # Default: docker
 runtime: docker
+
+# AI model runner (docker, ramalama).
+# Both require krunkit VM type for GPU access.
+# docker: Uses Docker Model Runner.
+# ramalama: Uses Ramalama.
+#
+# Default: docker
+modelRunner: ""
 
 # Set custom hostname for the virtual machine.
 # Default: colima
@@ -68,13 +76,13 @@ network:
   # Network mode for the virtual machine (shared, bridged).
   # NOTE: this is currently macOS only and ignored on Linux.
   # Default: shared
-  mode: ""
+  mode: shared
   
   # Network interface to use for bridged mode.
   # This is only used when mode is set to bridged.
   # NOTE: this is currently macOS only and ignored on Linux.
   # Default: en0
-  interface: ""
+  interface: en0
   
   # Use the assigned IP address as the preferred route for the VM.
   # Note: this only has an effect when `address` is set to true.
@@ -106,6 +114,15 @@ network:
   #
   # Default: false
   hostAddresses: false
+  
+  # Custom gateway address for the virtual machine.
+  # The last octet needs to be 2.
+  #
+  # EXAMPLE
+  # gatewayAddress: 192.168.10.2
+  #
+  # Default: 192.168.5.2
+  gatewayAddress: null
 
 # ===================================================================== #
 # ADVANCED CONFIGURATION
@@ -134,18 +151,20 @@ forwardAgent: false
 # Default: {}
 docker: {}
 
-# Virtual Machine type (qemu, vz)
+# Virtual Machine type (krunkit, qemu, vz)
 # NOTE: this is macOS 13 only. For Linux and macOS <13.0, qemu is always used.
 #
-# vz is macOS virtualization framework and requires macOS 13
+# vz is macOS virtualization framework and requires macOS 13.
+# krunkit runs super‑light VMs on macOS/ARM64 with a focus on GPU access. It is experimental.
 #
 # NOTE: value cannot be changed after virtual machine is created.
 # Default: qemu
 vmType: vz
 
-# Port forwarder for the virtual machine (ssh, grpc).
+# Port forwarder for the virtual machine (ssh, grpc, none).
 # ssh is more stable but supports only TCP.
 # grpc supports both TCP and UDP, but is experimental.
+# none disables port forwarding.
 #
 # Default: ssh
 portForwarder: ssh
@@ -177,7 +196,7 @@ mountType: virtiofs
 
 # Propagate inotify file events to the VM.
 # NOTE: this is experimental.
-mountInotify: false
+mountInotify: true
 
 # The CPU type for the virtual machine (requires vmType `qemu`).
 # Options available for host emulation can be checked with: `qemu-system-$(arch) -cpu help`.
@@ -201,13 +220,23 @@ cpuType: ""
 #       echo provisioning as $USER...
 #       touch ~/.provision
 #
+# EXAMPLE - script executed after VM boot, before container runtimes start
+# provision:
+#   - mode: after-boot
+#     script: echo "VM is up, containers not yet started"
+#
+# EXAMPLE - script executed after VM and container runtimes are ready
+# provision:
+#   - mode: ready
+#     script: echo "everything is ready"
+#
 # Default: []
 provision: []
 
 # Modify ~/.ssh/config automatically to include a SSH config for the virtual machine.
 # SSH config will still be generated in $COLIMA_HOME/ssh_config regardless.
 # Default: true
-sshConfig: false
+sshConfig: true
 
 # The port number for the SSH server for the virtual machine.
 # When set to 0, a random available port is used.
@@ -228,10 +257,7 @@ sshPort: 0
 #
 # Colima default behaviour: $HOME is mounted as writable.
 # Default: []
-mounts:
-  - location: ~/HomeLab
-    mountPoint: /Users/rahul/HomeLab
-    writable: true
+mounts: []
 
 # Specify a custom disk image for the virtual machine.
 # When not specified, Colima downloads an appropriate disk image from Github at

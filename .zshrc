@@ -76,3 +76,12 @@ zle -N edit_command_in_tmux_popup
 
 # Keybinding (use Ctrl-v)
 bindkey '^V' edit_command_in_tmux_popup
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/rahul/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/rahul/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/rahul/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/rahul/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
