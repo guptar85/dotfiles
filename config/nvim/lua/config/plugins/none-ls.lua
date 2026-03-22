@@ -27,6 +27,10 @@ return {
       -- Markdown
       null_ls.builtins.diagnostics.markdownlint,
       null_ls.builtins.formatting.prettier,
+
+  -- Python
+      null_ls.builtins.formatting.black,
+      null_ls.builtins.formatting.isort,
     }
 
     -- ✅ Create augroup only once
@@ -60,6 +64,8 @@ return {
         "shellcheck",
         "eslint_d",
         "markdownlint",
+        "black",
+        "isort",
       },
       automatic_installation = true,
     })

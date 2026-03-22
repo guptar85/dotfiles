@@ -15,7 +15,7 @@ return {
       local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
       mason_lspconfig.setup({
-        ensure_installed = { "lua_ls", "ts_ls", "html", "cssls", "bashls" },
+        ensure_installed = { "lua_ls", "ts_ls", "html", "cssls", "bashls", "pyright" },
         automatic_installation = true,
       })
 

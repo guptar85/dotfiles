@@ -33,7 +33,7 @@ return {
       -- 2. Ensure the JS Debug Adapter is installed
       --
       require("mason-nvim-dap").setup({
-        ensure_installed = { "js-debug-adapter" },
+        ensure_installed = { "js-debug-adapter", "debugpy" },
         automatic_installation = true,
       })
 
@@ -91,6 +91,36 @@ return {
             vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
             "${port}",
           },
+        },
+      }
+
+    -- Add Python adapter config (below your pwa-node setup)
+      dap.adapters.python = function(cb, config)
+        if config.request == 'attach' then
+          local port = (config.connect or config).port
+          local host = (config.connect or config).host or '127.0.0.1'
+          cb({ type = 'server', port = assert(port), host = host })
+        else
+          cb({
+            type = 'executable',
+            command = vim.fn.stdpath("data") .. '/mason/packages/debugpy/venv/bin/python',
+            args = { '-m', 'debugpy.adapter' },
+          })
+        end
+      end
+
+      dap.configurations.python = {
+        {
+          type = 'python',
+          request = 'launch',
+          name = "▶ Launch Python file",
+          program = "${file}",
+          pythonPath = function()
+            -- Automatically use active virtualenv if present
+            local venv = os.getenv("VIRTUAL_ENV")
+            if venv then return venv .. "/bin/python" end
+            return '/usr/bin/env python3'
+          end,
         },
       }
 
