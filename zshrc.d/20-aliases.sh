@@ -20,6 +20,7 @@ alias te='trash-empty'
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias d="cd $DOTFILES"
+alias cdc="cd $HOME/Code/"
 
 # Use eza for ls
 alias ls='eza --icons --group-directories-first'

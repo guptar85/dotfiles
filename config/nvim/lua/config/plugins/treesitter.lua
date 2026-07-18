@@ -13,6 +13,7 @@ return {
       },
       -- Core features
       highlight = { enable = true },
+      disable = { "markdown" },
       indent = { enable = true },
 
       -- Textobjects: select functions, classes, etc.

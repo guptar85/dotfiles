@@ -2,7 +2,7 @@ return {
   "MeanderingProgrammer/render-markdown.nvim",
   ft = { "markdown", "telekasten" }, -- only load for markdown + telekasten notes
   opts = {
-    enabled = true, -- enable by default
+    enabled = false, -- enable by default
     debounce = 200, -- delay for live rendering updates
     file_types = { "markdown", "telekasten" },
 
